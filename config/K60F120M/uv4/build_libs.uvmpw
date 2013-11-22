@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProjectWorkspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_mpw.xsd">
+
+  <SchemaVersion>1.0</SchemaVersion>
+
+  <Header>### uVision Project, (C) Keil Software</Header>
+
+  <WorkspaceName>WorkSpace</WorkspaceName>
+
+  <project>
+    <PathAndName>..\..\..\mqx\build\uv4\psp_K60F120M\psp_K60F120M.uvproj</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
+  </project>
+
+  <project>
+    <PathAndName>..\..\..\mqx\build\uv4\bsp_K60F120M\bsp_K60F120M.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>..\..\..\mfs\build\uv4\mfs_K60F120M\mfs_K60F120M.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>..\..\..\rtcs\build\uv4\rtcs_K60F120M\rtcs_K60F120M.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>..\..\..\shell\build\uv4\shell_K60F120M\shell_K60F120M.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>..\..\..\usb\device\build\uv4\usbd_K60F120M\usbd_K60F120M.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>..\..\..\usb\host\build\uv4\usbh_K60F120M\usbh_K60F120M.uvproj</PathAndName>
+  </project>
+
+</ProjectWorkspace>

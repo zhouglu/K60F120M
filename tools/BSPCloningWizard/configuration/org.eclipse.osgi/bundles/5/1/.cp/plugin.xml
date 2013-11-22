@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="com.freescale.mqx.bspcloner.rcp.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="RCP Perspective"
+            class="com.freescale.mqx.bspcloner.rcp.Perspective"
+            id="com.freescale.mqx.bspcloner.rcp.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.activities">
+      <activity
+            id="com.freescale.mqx.bspcloner.rcp.activity"
+            name="Disabling Editor Buttons">
+      </activity>
+      <activityPatternBinding
+            activityId="com.freescale.mqx.bspcloner.rcp.activity"
+            pattern="org\.eclipse\.ui\.editors.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="com.freescale.mqx.bspcloner.rcp.activity"
+            pattern="org\.eclipse\.ui\.externaltools.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="com.freescale.mqx.bspcloner.rcp.activity"
+            pattern="org\.eclipse\.search.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="com.freescale.mqx.bspcloner.rcp.activity"
+            pattern="org\.eclipse\.ui\.window\.showKeyAssist">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="com.freescale.mqx.bspcloner.rcp.activity"
+            pattern="org.eclipse.equinox.p2.*">
+      </activityPatternBinding>
+      <activityPatternBinding
+            activityId="com.freescale.mqx.bspcloner.rcp.activity"
+            pattern=".*cheatsheet.*">
+      </activityPatternBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=file">
+         <menu
+               label="View">
+            <command
+                  commandId="org.eclipse.ui.views.showView"
+                  label="Show Console"
+                  style="push">
+               <parameter
+                     name="org.eclipse.ui.views.showView.viewId"
+                     value="org.eclipse.ui.console.ConsoleView">
+               </parameter>
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:file?after=fileStart">
+         <command
+               commandId="org.eclipse.ui.newWizard"
+               label="New MQX BSP Clone"
+               style="push">
+            <parameter
+                  name="newWizardId"
+                  value="com.freescale.mqx.bspcloner.wizard.bsp">
+            </parameter>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.freescale.mqx.bspcloner.rcp.application"
+            name="MQX BSP Cloning Wizard">
+         <property
+               name="appName"
+               value="MQX BSP Cloning Wizard">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="aboutText"
+               value="MQX BSP Cloning Wizard&#x0A;&#x0A;(c) Freescale Semiconductor, Inc. 2013. All rights reserved.">
+         </property>
+         <property
+               name="aboutImage"
+               value="images/logo.png">
+         </property>
+         <property
+               name="windowImages"
+               value="images/board_16.png,images/board_32.png,images/board_48.png,images/board_64.png,images/board_128.png">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="images/board_16.png"
+            id="com.freescale.mqx.bspcloner.rcp.intro"
+            label="BSP Cloning Wizard for MQX">
+      </intro>
+      <introProductBinding
+            introId="com.freescale.mqx.bspcloner.rcp.intro"
+            productId="com.freescale.mqx.bspcloner.rcp.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="welcome_page/intro.xml"
+            id="com.freescale.mqx.bspcloner.rcp.introconfig"
+            introId="com.freescale.mqx.bspcloner.rcp.intro">
+         <presentation
+               home-page-id="root"
+               standby-page-id="standby">
+            <implementation
+                  kind="html">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+
+</plugin>

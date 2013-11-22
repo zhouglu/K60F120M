@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,com.freescale.
+ mqx.bspcloner.editor;bundle-version="1.0.0",com.freescale.mqx.bspclon
+ er.wizard;bundle-version="1.0.0",com.freescale.mqx.installation.manag
+ er;bundle-version="1.0.0",com.freescale.mqx.installation.manager.data
+ provider.win32;bundle-version="1.0.0",com.freescale.snakeyaml.lib;bun
+ dle-version="1.0.0",com.freescale.mqx.bspcloner.perspective;bundle-ve
+ rsion="1.0.0",org.eclipse.ui.intro
+Bundle-Vendor: Freescale Semiconductor
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.0.0.201307031036
+Bundle-Name: MQX BSP Cloning Wizard
+Bundle-Activator: com.freescale.mqx.bspcloner.rcp.Activator
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.freescale.mqx.bspcloner.rcp; singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
+

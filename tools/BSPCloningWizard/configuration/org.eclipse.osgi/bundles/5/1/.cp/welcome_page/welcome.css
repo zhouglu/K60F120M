@@ -1,0 +1,99 @@
+/* stylesheet for ADT welcome page */
+
+html,body {
+  background-color:#FFFFFF;
+  font:14px/19px sans-serif;
+  color: #000000;
+  margin:0;
+  padding:0;}
+
+body {
+  padding:15px;
+}
+
+a:link, a:visited, a:focus, a:hover, a:active {
+    text-decoration: none;
+}
+
+strong, b {
+    font-weight:bold;
+    color: #000000;
+}
+
+img {
+    border: none;
+}
+
+h1, h2 {
+    line-height: 32px;
+}
+
+h1 {
+    color:#FF8800;
+    font-size: 28px;
+    margin: 10px 0 0;
+    padding:0;
+}
+
+h2 {
+    color:#FF8800;
+    font-size: 20px;
+    margin: 20px 0 20px;
+    padding:0;
+}
+
+h3 {
+    color:#FF8800;
+    font-size: 18px;
+}
+
+
+div.link-box,
+a:link div.link-box,
+a:active div.link-box,
+a:visited div.link-box {
+    margin: 20px 0 0;
+    padding: 15px 0;
+    width:100%;
+    border:1px solid transparent;
+    background-color: #EEEEEE;
+}
+
+a:hover div.link-box {
+    border:1px solid #FF8800;
+}
+
+div.link-box > * {
+    margin:15px;
+}
+
+div.link-box h2,
+div.link-box h3 {
+    color:#FF8800;
+    margin-top:0;
+}
+
+div.link-box p {
+    color:#000000;
+}
+
+.wrap {
+    margin: 0 auto;
+    width: 100%;
+    min-width:650px;
+    max-width:900px;
+    clear: both;
+}
+
+.box-40, .box-full {
+    float: left;
+    margin: 0 2% 20px 2%;
+}
+
+.box-40 {
+    width: 46%;
+}
+
+.box-full {
+    width: 96%;
+}
