@@ -1127,6 +1127,40 @@ _mqx_int _bsp_ftfx_io_init
 
 /*FUNCTION*-------------------------------------------------------------------
 *
+* Function Name    : _bsp_tss_io_init
+* Returned Value   : MQX_OK
+* Comments         :
+*    This function performs BSP-specific initialization related to TSS
+*
+*END*----------------------------------------------------------------------*/
+_mqx_int _bsp_tss_io_init
+(
+    void
+)
+{
+    SIM_MemMapPtr sim = SIM_BASE_PTR;
+    
+    sim->SCGC5 |= SIM_SCGC5_TSI_MASK;   /* TSI clock enablement */
+    
+    /* Set Electrodes for TSI function */
+    PORTB_PCR0 = PORT_PCR_MUX(0);
+    PORTB_PCR1 = PORT_PCR_MUX(0);
+    PORTB_PCR2 = PORT_PCR_MUX(0);
+    PORTB_PCR3 = PORT_PCR_MUX(0);
+    PORTC_PCR0 = PORT_PCR_MUX(0);
+    PORTC_PCR1 = PORT_PCR_MUX(0);
+    PORTC_PCR2 = PORT_PCR_MUX(0);
+    PORTA_PCR4 = PORT_PCR_MUX(0);
+    PORTB_PCR16 = PORT_PCR_MUX(0);
+    PORTB_PCR17 = PORT_PCR_MUX(0);
+    PORTB_PCR18 = PORT_PCR_MUX(0);
+    PORTB_PCR19 = PORT_PCR_MUX(0);
+
+    return MQX_OK;
+}
+
+/*FUNCTION*-------------------------------------------------------------------
+*
 * Function Name    : _bsp_sai_io_init
 * Returned Value   : 0 for success, -1 for failure
 * Comments         :

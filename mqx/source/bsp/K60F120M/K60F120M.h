@@ -259,6 +259,11 @@ extern uchar __DEFAULT_INTERRUPT_STACK_SIZE[];
 #define BSP_HWTIMER2_SOURCE_CLK (CM_CLOCK_SOURCE_BUS)
 #define BSP_HWTIMER2_ID         (1)
 
+/* HMI Touch TWRPI daughter cards */
+#define BSP_TWRPI_VOID   0
+#define BSP_TWRPI_ROTARY 1
+#define BSP_TWRPI_KEYPAD 2
+
 /* Port IRQ levels */
 #define BSP_PORTA_INT_LEVEL         (3)
 #define BSP_PORTB_INT_LEVEL         (3)
@@ -286,6 +291,7 @@ extern uchar __DEFAULT_INTERRUPT_STACK_SIZE[];
 #define BSP_TCHRES_X_TRIGGER ADC_PDB_TRIGGER
 #define BSP_TCHRES_Y_TRIGGER ADC_PDB_TRIGGER
 
+#define BSP_TSI_INT_LEVEL       (4)
 /*-----------------------------------------------------------------------------
 **                      Ethernet Info
 */
@@ -1019,6 +1025,9 @@ extern uchar __USER_AREA_END[];
 #ifndef BSP_DEFAULT_IO_CHANNEL
     #if BSPCFG_ENABLE_TTYF
         #define BSP_DEFAULT_IO_CHANNEL                        "ttyf:"    /* OSJTAG-COM   polled mode   */
+        #define BSP_DEFAULT_IO_CHANNEL_DEFINED
+    #elif BSPCFG_ENABLE_ITTYF
+        #define BSP_DEFAULT_IO_CHANNEL                        "ittyf:"    /* OSJTAG-COM   interrupt-driven mode   */
         #define BSP_DEFAULT_IO_CHANNEL_DEFINED
     #else
         #define BSP_DEFAULT_IO_CHANNEL                        NULL

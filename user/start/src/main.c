@@ -37,12 +37,14 @@
 #define MAIN_TASK 5
 
 extern void main_task(uint_32);
+extern void dio_task(uint_32 arg);
 extern int_32 CalcEnergy(int_32 argc, char_ptr argv[]);
 
 const TASK_TEMPLATE_STRUCT  MQX_template_list[] = 
 { 
     /* Task Index,   Function,   Stack,  Priority, Name,     Attributes,          Param, Time Slice */
     { MAIN_TASK,   main_task, 8000,   8,        "main",  MQX_AUTO_START_TASK, 0,     0 },
+    { MAIN_TASK + 1,   dio_task, 1000,   7,        "dio",  MQX_AUTO_START_TASK, 0,     0 },
     { 0 }
 };
 

@@ -96,6 +96,15 @@
 #include <timer_lpt.h>
 #include <timer_qpit.h>
 #include <usb_bsp.h>
+
+/* HMI */
+#include <hmi_uids.h>
+#include <btnled.h>
+#include <hmi_client.h>
+#include <hmi_lwgpio_provider.h>
+#include <hmi_tss_provider.h>
+#include <hmi_provider.h>
+
 #include <sai.h>
 #include <sai_ksai.h>
 #include <dma.h>
@@ -120,6 +129,10 @@ _mqx_int _bsp_enet_io_init(_mqx_uint);
 boolean  _bsp_get_mac_address(uint_32,uint_32,_enet_address);
 _mqx_int _bsp_nandflash_io_init(void);
 _mqx_int _bsp_ftfx_io_init(_mqx_uint);
+HMI_CLIENT_STRUCT_PTR _bsp_btnled_init(void);
+_mqx_int _bsp_tss_io_init(void);
+_mqx_int _bsp_btnled_set_twrpi(_mqx_int);
+_mqx_int _bsp_btnled_get_twrpi(void);
 _mqx_int _bsp_sai_io_init(uint_32);
 
 extern const SDCARD_INIT_STRUCT _bsp_sdcard0_init;

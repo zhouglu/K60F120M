@@ -12,7 +12,7 @@
 *
 * Comments:
 *
-*   This file is the source if analog sample application.
+*   This file is the source of analog sample application.
 *
 *END************************************************************************/
 

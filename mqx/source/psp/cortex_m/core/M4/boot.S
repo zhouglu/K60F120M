@@ -66,7 +66,7 @@ PROJ_DIRPROJ_DIRPROJ_DIR
 #endif
 
         /* disable interrupts and clear pending flags */
-$PROJ_DIR$.out        ldr r0, =0xe000e180     /* NVIC_ICER0 - Interrupt Clear-Enable Registers */
+        ldr r0, =0xe000e180     /* NVIC_ICER0 - Interrupt Clear-Enable Registers */
         ldr r1, =0xe000e280     /* NVIC_ICPR0 - Interrupt Clear-Pending Registers */
         ldr r2, =0xffffffff
         mov r3, #8
