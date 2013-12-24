@@ -22,6 +22,8 @@
 #include <shell.h>
 #include <stdlib.h>
 
+/* Task IDs */
+#define MAIN_TASK 5
 
 #if ! BSPCFG_ENABLE_IO_SUBSYSTEM
 #error This application requires BSPCFG_ENABLE_IO_SUBSYSTEM defined non-zero in user_config.h. Please recompile BSP with this option.
@@ -33,46 +35,45 @@
 #endif
 
 
-/* Task IDs */
-#define MAIN_TASK 5
+void Shell_task(uint_32);
+extern void hmi_task(uint_32 arg);
 
-extern void main_task(uint_32);
-extern void dio_task(uint_32 arg);
-extern int_32 CalcEnergy(int_32 argc, char_ptr argv[]);
+/* function prototypes */
+extern int_32 Shell_set_module(int_32, char_ptr []);
+extern int_32 Shell_get_module(int_32, char_ptr []);
+extern int_32 Shell_calc_energy(int_32, char_ptr []);
 
 const TASK_TEMPLATE_STRUCT  MQX_template_list[] = 
 { 
     /* Task Index,   Function,   Stack,  Priority, Name,     Attributes,          Param, Time Slice */
-    { MAIN_TASK,   main_task, 8000,   8,        "main",  MQX_AUTO_START_TASK, 0,     0 },
-    { MAIN_TASK + 1,   dio_task, 1000,   7,        "dio",  MQX_AUTO_START_TASK, 0,     0 },
+    { MAIN_TASK,   Shell_task, 8500,   12,        "shell",  MQX_AUTO_START_TASK, 0,     0 },
+    { MAIN_TASK + 1,   hmi_task, 1500,   9,        "hmi",  MQX_AUTO_START_TASK, 0,     0 },
     { 0 }
 };
 
+const SHELL_COMMAND_STRUCT Shell_commands[] = {
+        {"module", Shell_set_module},
+        {"get", Shell_get_module},
+        {"calcenergy", Shell_calc_energy},
+        {"exit", Shell_exit},
+        {"help", Shell_help},
+        {NULL, NULL}
+};
+
 /*TASK*-----------------------------------------------------
-* 
-* Task Name    : main_task
+*
+* Task Name    : Shell_task
 * Comments     :
-*    This task prints " Hello World "
+*   This task starts shell and polls it regulary.
 *
 *END*-----------------------------------------------------*/
-void main_task
-    (
-        uint_32 initial_data
-    )
-{
-    int i = 0;
-    printf("Hello World\n"); 
-    while (1) {
-        Shell(Shell_commands, NULL);
-        printf("\r\ncall delay %d times", i++);
-        _time_delay(1000);
-    }
-//    _task_block();
-}
 
-const SHELL_COMMAND_STRUCT Shell_commands[] = {
-    { "calcenergy", CalcEnergy },
-    { NULL, NULL }
-};
+void Shell_task(uint_32 initial_data)
+{
+    while (1)
+    {
+        Shell(Shell_commands,NULL);    /* start shell */
+    }
+}
 
 /* EOF */

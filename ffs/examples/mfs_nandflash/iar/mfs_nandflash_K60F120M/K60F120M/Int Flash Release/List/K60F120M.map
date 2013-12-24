@@ -1,0 +1,2399 @@
+###############################################################################
+#                                                                             #
+# IAR ELF Linker V6.40.4.54170/W32 for ARM              29/Nov/2013  10:50:15 #
+# Copyright 2007-2012 IAR Systems AB.                                         #
+#                                                                             #
+#    Output file  =  D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_nan #
+#                    dflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash     #
+#                    Release\Exe\K60F120M.out                                 #
+#    Map file     =  D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_nan #
+#                    dflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash     #
+#                    Release\List\K60F120M.map                                #
+#    Command line =  "D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_na #
+#                    ndflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash    #
+#                    Release\Obj\demo.o" D:\Ganglu\Documents\GitHub\K60F120M\ #
+#                    lib\K60F120M.iar\release\bsp\bsp.a                       #
+#                    D:\Ganglu\Documents\GitHub\K60F120M\lib\K60F120M.iar\rel #
+#                    ease\ffs\ffs.a D:\Ganglu\Documents\GitHub\K60F120M\lib\K #
+#                    60F120M.iar\release\mfs\mfs.a                            #
+#                    D:\Ganglu\Documents\GitHub\K60F120M\lib\K60F120M.iar\rel #
+#                    ease\psp\psp.a D:\Ganglu\Documents\GitHub\K60F120M\lib\K #
+#                    60F120M.iar\release\shell\shell.a --redirect             #
+#                    _Printf=_PrintfFull --redirect _Scanf=_ScanfFull -o      #
+#                    "D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_na #
+#                    ndflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash    #
+#                    Release\Exe\K60F120M.out" --map                          #
+#                    "D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_na #
+#                    ndflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash    #
+#                    Release\List\K60F120M.map" --config                      #
+#                    D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_nan #
+#                    dflash\iar\mfs_nandflash_K60F120M/../../../../../lib/K60 #
+#                    F120M.iar/debug/bsp/intflash.icf --redirect              #
+#                    __iar_dlmalloc=malloc --redirect __iar_dlcalloc=calloc   #
+#                    --redirect __iar_dlfree=free --entry                     #
+#                    __iar_program_start --inline --vfe                       #
+#                                                                             #
+#                                                                             #
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor                   = *
+__CPP_Exceptions            = Used
+__CPP_Language              = C++
+__SystemLibrary             = DLib
+__dlib_iterator_debugging   = 0
+__dlib_jmp_buf_num_elements = 16
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A1":  place at 0x00000000 { ro section .intvec, block CFMPROTROM };
+"P1":  place in [from 0x00000000 to 0x0007ffff] {
+          first block TEXTSECTION, ro, last block FLASHX_POOL };
+"P2":  place in [from 0x1fff0000 to 0x2000fff0] {
+          block USER_MEMORY, last block KERNEL_DATA };
+
+  Section                 Kind        Address     Size  Object
+  -------                 ----        -------     ----  ------
+"A1":                                            0x414
+  .intvec                 const    0x00000000    0x400  vectors.o [3]
+  CFMPROTROM                       0x00000400     0x14  <Block>
+    .cfmconfig            const    0x00000400     0x10  vectors.o [3]
+    .cfmconfig            const    0x00000410      0x0  vectors.o [3]
+    CFMPROTROM            const    0x00000410      0x4  <Block tail>
+                                 - 0x00000414    0x414
+
+"P1":                                          0x20be4
+  TEXTSECTION                      0x00000420  0x1ff28  <Block>
+    .text                 ro code  0x00000420     0x28  support.o [9]
+    .text                 ro code  0x00000450     0x64  boot.o [9]
+    .text                 ro code  0x000004b4      0xc  cstartup_M.o [10]
+    .text                 ro code  0x000004c0     0x1a  fpinit_M.o [7]
+    .text                 ro code  0x000004da      0x2  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x000004dc     0x16  cmain.o [10]
+    .text                 ro code  0x000004f2     0x12  comp.o [9]
+    .text                 ro code  0x00000504     0x28  data_init3.o [10]
+    .text                 ro code  0x0000052c     0x10  mqx_main.o [3]
+    .text                 ro code  0x0000053c      0x4  exit.o [4]
+    .text                 ro code  0x00000540     0xbc  init_hw.o [3]
+    .text                 ro code  0x000005fc    0x444  lwmem.o [9]
+    .text                 ro code  0x00000a40    0x27c  mqx.o [9]
+    .text                 ro code  0x00000cbc      0xa  cexit.o [10]
+    .text                 ro code  0x00000cc6      0xa  red_black_tree.o [6]
+    .text                 ro code  0x00000cd0    0x678  bsp_cm.o [3]
+    .text                 ro code  0x00001348    0x4b8  init_gpio.o [3]
+    .text                 ro code  0x00001800    0x1d4  int.o [9]
+    .text                 ro code  0x000019d4      0x6  ABImemclr.o [10]
+    .text                 ro code  0x000019da     0x22  zero_init3.o [10]
+    .text                 ro code  0x000019fc    0x62e  task.o [9]
+    .text                 ro code  0x0000202a    0x148  queue.o [9]
+    .text                 ro code  0x00002174     0x76  ABImemcpy.o [10]
+    .text                 ro code  0x000021ec     0xa4  sc_irdyq.o [9]
+    .text                 ro code  0x00002290    0x234  lwsem.o [9]
+    .text                 ro code  0x000024c4    0x1d8  init_bsp.o [3]
+    .text                 ro code  0x0000269c      0xc  XXexit.o [10]
+    .text                 ro code  0x000026a8    0x118  hwtimer.o [3]
+    .text                 ro code  0x000027c0     0x66  ABImemset.o [10]
+    .text                 ro code  0x00002828     0xa2  stack_bu.o [9]
+    .text                 ro code  0x000028cc     0x3a  ABImemset48.o [10]
+    .text                 ro code  0x00002908    0x560  time.o [9]
+    .text                 ro code  0x00002e68     0x12  psp_iinit.o [9]
+    .text                 ro code  0x00002e7c     0x10  int_vtab.o [9]
+    .text                 ro code  0x00002e8c     0x14  kinetis_mpu.o [9]
+    .text                 ro code  0x00002ea0    0x168  edma.o [3]
+    .text                 ro code  0x00003008     0x24  io_init.o [9]
+    .text                 ro code  0x0000302c    0x31c  krtc.o [3]
+    .text                 ro code  0x00003348     0x28  cache.o [9]
+    .text                 ro code  0x00003370    0x1cc  serl_int_kuart.o [3]
+    .text                 ro code  0x0000353c    0x868  i2c_pol_ki2c.o [3]
+    .text                 ro code  0x00003da4    0x54c  i2c_int_ki2c.o [3]
+    .text                 ro code  0x000042f0    0x46a  adc.o [3]
+    .text                 ro code  0x0000475c    0x97a  esdhc.o [3]
+    .text                 ro code  0x000050d8    0x1d4  sai_int.o [3]
+    .text                 ro code  0x000052ac     0x30  io_sinit.o [3]
+    .text                 ro code  0x000052dc      0x6  ABImemclr4.o [10]
+    .text                 ro code  0x000052e4     0x5c  psp_msti.o [9]
+    .text                 ro code  0x00005340     0x44  psp_tiad.o [9]
+    .text                 ro code  0x00005384    0x10c  sched.o [9]
+    .text                 ro code  0x00005490     0x68  psp_mstiq.o [9]
+    .text                 ro code  0x000054f8     0x3c  psp_tisu.o [9]
+    .text                 ro code  0x00005534     0x48  psp_tise.o [9]
+    .text                 ro code  0x0000557c     0x7c  psp_tkti.o [9]
+    .text                 ro code  0x000055f8     0x30  psp_tinm.o [9]
+    .text                 ro code  0x00005628     0x26  psp_tiol.o [9]
+    .text                 ro code  0x00005650     0x10  int_inst.o [9]
+    .text                 ro code  0x00005660     0x88  edma_kinetisf.o [3]
+    .text                 ro code  0x000056e8     0x86  nvic.o [9]
+    .text                 ro code  0x00005770    0x594  serl_int.o [3]
+    .text                 ro code  0x00005d04    0x41e  serl_pol_kuart.o [3]
+    .text                 ro code  0x00006124    0x12e  i2c_pol.o [3]
+    .text                 ro code  0x00006254     0x30  i2c_mk60.o [3]
+    .text                 ro code  0x00006284    0x132  i2c_int.o [3]
+    .text                 ro code  0x000063b6     0x1c  io_inst.o [9]
+    .text                 ro code  0x000063d4    0x850  adc_kadc.o [3]
+    .text                 ro code  0x00006c24    0x7a8  adt_kpdb.o [3]
+    .text                 ro code  0x000073cc     0x42  strcmp.o [10]
+    .text                 ro code  0x00007410     0x36  strlen.o [10]
+    .text                 ro code  0x00007448     0xfc  io_instx.o [9]
+    .text                 ro code  0x00007544     0x10  esdhc_mk60.o [3]
+    .text                 ro code  0x00007554     0x8c  io_fopen.o [9]
+    .text                 ro code  0x000075e0    0x132  I64DivMod.o [10]
+    .text                 ro code  0x00007714     0x1c  psp_seti.o [9]
+    .text                 ro code  0x00007730    0x198  taskq.o [9]
+    .text                 ro code  0x000078c8     0x44  serl_mk60.o [3]
+    .text                 ro code  0x0000790c     0x24  adc_mk60.o [3]
+    .text                 ro code  0x00007930     0xc0  lwevent.o [9]
+    .text                 ro code  0x000079f0     0x2a  strncmp.o [4]
+    .text                 ro code  0x00007a1c      0x2  I64DivZer.o [10]
+    .text                 ro code  0x00007a20     0xc0  ddi_nand_media_get_info.o [6]
+    .text                 ro code  0x00007ae0    0x164  ddi_nand_hal_common.o [6]
+    .text                 ro code  0x00007c44    0x16e  ddi_ldl_util.o [6]
+    .text                 ro code  0x00007db4     0x28  io_pntf.o [9]
+    .text                 ro code  0x00007ddc     0x44  io_ghand.o [9]
+    .text                 ro code  0x00007e20    0xb94  io_dopr.o [9]
+    .text                 ro code  0x000089b4    0x696  io_fp.o [9]
+    .text                 ro code  0x0000904c     0xc0  modf.o [7]
+    .text                 ro code  0x0000910c     0x20  DblCmpEq.o [7]
+    .text                 ro code  0x0000912c    0x246  DblDiv.o [7]
+    .text                 ro code  0x00009374     0xe8  DblAdd.o [7]
+    .text                 ro code  0x0000945c    0x1a2  DblMul.o [7]
+    .text                 ro code  0x00009600     0x4c  DblToI32.o [7]
+    .text                 ro code  0x0000964c     0x2e  DblCmpGe.o [7]
+    .text                 ro code  0x0000967c     0x2e  DblCmpLe.o [7]
+    .text                 ro code  0x000096ac    0x16c  DblSub.o [7]
+    .text                 ro code  0x00009818    0x964  demo.o [1]
+    .text                 ro code  0x0000a17c     0x38  io_ioctl.o [9]
+    .text                 ro code  0x0000a1b4     0x28  io_fclos.o [9]
+    .text                 ro code  0x0000a1dc    0xfbc  mfs_init.o [8]
+    .text                 ro code  0x0000b198    0x6e4  mfs_misc.o [8]
+    .text                 ro code  0x0000b87c      0xc  io_ferr.o [9]
+    .text                 ro code  0x0000b888     0x78  io_uinst.o [9]
+    .text                 ro code  0x0000b900    0x778  nandflash_wl.o [6]
+    .text                 ro code  0x0000c078    0x2a8  shell.o [11]
+    .text                 ro code  0x0000c320    0x1f0  sh_util.o [11]
+    .text                 ro code  0x0000c510    0x3d4  partition.o [9]
+    .text                 ro code  0x0000c8e4    0x30c  io_util.o [9]
+    .text                 ro code  0x0000cbf0    0x2e6  mfs_open.o [8]
+    .text                 ro code  0x0000ced6     0x70  io_fseek.o [9]
+    .text                 ro code  0x0000cf48    0x400  mfs_create.o [8]
+    .text                 ro code  0x0000d348    0x290  mfs_read.o [8]
+    .text                 ro code  0x0000d5d8    0x460  mfs_write.o [8]
+    .text                 ro code  0x0000da38    0x344  mfs_cluster.o [8]
+    .text                 ro code  0x0000dd7c    0x706  mfs_directory.o [8]
+    .text                 ro code  0x0000e482     0xd0  mfs_attribute.o [8]
+    .text                 ro code  0x0000e552     0xca  mfs_time.o [8]
+    .text                 ro code  0x0000e61c    0x6c8  mfs_lfn.o [8]
+    .text                 ro code  0x0000ece4     0xde  mfs_delete.o [8]
+    .text                 ro code  0x0000edc2    0x25a  mfs_rename.o [8]
+    .text                 ro code  0x0000f01c    0x5f4  mfs_dir_entry.o [8]
+    .text                 ro code  0x0000f610    0x33c  mfs_rw.o [8]
+    .text                 ro code  0x0000f94c    0x2d4  mfs_fat.o [8]
+    .text                 ro code  0x0000fc20    0x6e0  mfs_format.o [8]
+    .text                 ro code  0x00010300     0x90  mfs_data_sector.o [8]
+    .text                 ro code  0x00010390     0x84  mfs_valdev.o [8]
+    .text                 ro code  0x00010414    0x234  ddi_ldl_init.o [6]
+    .text                 ro code  0x00010648    0x1c0  media_buffer_manager_init.o [6]
+    .text                 ro code  0x00010808    0x176  ddi_ldl_write.o [6]
+    .text                 ro code  0x0001097e     0x28  ddi_ldl_read.o [6]
+    .text                 ro code  0x000109a8     0xac  ddi_ldl_drive_get_info.o [6]
+    .text                 ro code  0x00010a54     0x6c  strncpy.o [10]
+    .text                 ro code  0x00010ac0     0x32  io_fflsh.o [9]
+    .text                 ro code  0x00010af2     0x28  io_fgets.o [9]
+    .text                 ro code  0x00010b1a     0x46  io_util.o [9]
+    .text                 ro code  0x00010b60     0x44  strcpy.o [10]
+    .text                 ro code  0x00010ba4    0x604  mfs_search.o [8]
+    .text                 ro code  0x000111a8     0x82  mfs_handle.o [8]
+    .text                 ro code  0x0001122c     0x5a  io_spr.o [9]
+    .text                 ro code  0x00011288     0x22  I64Shl.o [10]
+    .text                 ro code  0x000112ac    0x400  mfs_parse.o [8]
+    .text                 ro code  0x000116ac     0x1a  strnlen.o [9]
+    .text                 ro code  0x000116c6     0x1e  io_write.o [9]
+    .text                 ro code  0x000116e4     0x62  memcmp.o [10]
+    .text                 ro code  0x00011746     0x50  io_read.o [9]
+    .text                 ro code  0x00011798     0x24  newop_0.o [5]
+    .text                 ro code  0x000117bc    0x2b4  ddi_nand_media_init.o [6]
+    .text                 ro code  0x00011a70    0x38c  mutex.o [9]
+    .text                 ro code  0x00011dfc     0x50  errcode.o [6]
+    .text                 ro code  0x00011e4c    0x624  timer.o [9]
+    .text                 ro code  0x00012470    0x89c  media_buffer_manager.o [6]
+    .text                 ro code  0x00012d0c    0x10c  ddi_ldl_iterator.o [6]
+    .text                 ro code  0x00012e18     0x76  io_fgetl.o [9]
+    .text                 ro code  0x00012e8e     0x1c  strcat.o [4]
+    .text                 ro code  0x00012eaa      0x4  nomemory.o [5]
+    .text                 ro code  0x00012eae      0xa  delop_0.o [5]
+    .text                 ro code  0x00012eb8    0x12c  simple_mutex.o [6]
+    .text                 ro code  0x00012fe4     0x74  ddi_nand_hal_init.o [6]
+    .text                 ro code  0x00013058      0x8  newaop_0.o [5]
+    .text                 ro code  0x00013060    0x2c4  deferred_task_queue.o [6]
+    .text                 ro code  0x00013324    0xc08  mapper.o [6]
+    .text                 ro code  0x00013f2c   0x13e4  nonsequential_sectors_map.o [6]
+    .text                 ro code  0x00015310    0x18c  bad_block_table.o [6]
+    .text                 ro code  0x0001549c     0x36  io_fgetc.o [9]
+    .text                 ro code  0x000154d2     0x22  io_fung.o [9]
+    .text                 ro code  0x000154f4      0x6  abort.o [4]
+    .text                 ro code  0x000154fc    0x320  ddi_nand_hal_nfcphymedia.o [6]
+    .text                 ro code  0x0001581c    0x140  double_list.o [6]
+    .text                 ro code  0x0001595c    0x290  phy_map.o [6]
+    .text                 ro code  0x00015bec    0x64c  zone_map_cache.o [6]
+    .text                 ro code  0x00016238    0x2b8  persistent_phy_map.o [6]
+    .text                 ro code  0x000164f0    0x560  ddi_nand_mapper_utilities.o [6]
+    .text                 ro code  0x00016a50     0x1a  mapper.o [6]
+    .text                 ro code  0x00016a6c    0x298  ddi_block.o [6]
+    .text                 ro code  0x00016d04    0x324  ddi_metadata.o [6]
+    .text                 ro code  0x00017028     0xaa  ddi_nand_nssm_get_entry.o [6]
+    .text                 ro code  0x000170d4    0x1e8  ddi_nand_mapper_get_info.o [6]
+    .text                 ro code  0x000172bc     0x18  simple_timer.o [6]
+    .text                 ro code  0x000172d4    0x4cc  red_black_tree.o [6]
+    .text                 ro code  0x000177a0     0xcc  wlru.o [6]
+    .text                 ro code  0x0001786c     0xb8  cxxabi.o [5]
+    .text                 ro code  0x00017924    0x2f0  page_order_map.o [6]
+    .text                 ro code  0x00017c14     0x42  ddi_nand_media_regions.o [6]
+    .text                 ro code  0x00017c58    0x3ac  ddi_page.o [6]
+    .text                 ro code  0x00018004     0xac  deferred_task.o [6]
+    .text                 ro code  0x000180b0     0x16  wl_common.o [6]
+    .text                 ro code  0x000180c6      0x4  delaop_0.o [5]
+    .text                 ro code  0x000180cc    0x8f8  persistent_map.o [6]
+    .text                 ro code  0x000189c4    0x308  zone_map_section_page.o [6]
+    .text                 ro code  0x00018ccc    0x21c  ddi_nand_mapper_zone_map_cache_lookup.o [6]
+    .text                 ro code  0x00018ee8     0x98  psp_tius.o [9]
+    .text                 ro code  0x00018f80     0x14  memset.o [4]
+    .text                 ro code  0x00018f94     0x24  ddi_page.o [6]
+    .text                 ro code  0x00018fb8     0x9e  psp_mat1.o [9]
+    .text                 ro code  0x00019056     0x32  psp_mat3.o [9]
+    .text                 ro code  0x00019088     0x9a  psp_mat2.o [9]
+    .text                 ro code  0x00019124    0x1f0  sh_cd.o [11]
+    .text                 ro code  0x00019314     0x88  sh_cmdlist.o [11]
+    .text                 ro code  0x0001939c    0x2f4  sh_copy.o [11]
+    .text                 ro code  0x00019690     0x30  io_fputc.o [9]
+    .text                 ro code  0x000196c0    0x1f0  sh_create.o [11]
+    .text                 ro code  0x000198b0    0x1ac  sh_del.o [11]
+    .text                 ro code  0x00019a5c    0x8c4  sh_di.o [11]
+    .text                 ro code  0x0001a320    0x234  sh_dir.o [11]
+    .text                 ro code  0x0001a554    0x3a0  dir_read.o [8]
+    .text                 ro code  0x0001a8f4    0x2a4  sh_disect.o [11]
+    .text                 ro code  0x0001ab98     0x58  sh_exit.o [11]
+    .text                 ro code  0x0001abf0    0x29c  sh_format.o [11]
+    .text                 ro code  0x0001ae8c    0x170  sh_help.o [11]
+    .text                 ro code  0x0001affc    0x1c0  sh_mkdir.o [11]
+    .text                 ro code  0x0001b1bc     0xd0  sh_pwd.o [11]
+    .text                 ro code  0x0001b28c    0x3d0  sh_read.o [11]
+    .text                 ro code  0x0001b65c    0x274  sh_rename.o [11]
+    .text                 ro code  0x0001b8d0    0x1ec  sh_rmdir.o [11]
+    .text                 ro code  0x0001babc    0x138  sh_sh.o [11]
+    .text                 ro code  0x0001bbf4    0x1d8  sh_type.o [11]
+    .text                 ro code  0x0001bdcc    0x468  sh_write.o [11]
+    .text                 ro code  0x0001c234    0xa88  nfc_wl.o [6]
+    .text                 ro code  0x0001ccbc      0xc  nfc_k60f120m.o [3]
+    .text                 ro code  0x0001ccc8    0x764  nfc.o [3]
+    .text                 ro code  0x0001d42c     0x44  idletask.o [9]
+    .text                 ro code  0x0001d470    0x118  hwtimer_systick.o [3]
+    .text                 ro code  0x0001d588     0xe0  ddi_nand_media_shutdown.o [6]
+    .text                 ro code  0x0001d668    0x1cc  ddi_nand_media_allocate.o [6]
+    .text                 ro code  0x0001d834    0x270  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x0001daa4    0x2bc  ddi_nand_data_drive_init.o [6]
+    .text                 ro code  0x0001dd60   0x1646  sai_int_ksai.o [3]
+    .text                 ro code  0x0001f3a8     0x44  sai_mk60.o [3]
+    .text                 ro code  0x0001f3ec    0x3a0  ddi_nand_data_drive_read_sector.o [6]
+    .text                 ro code  0x0001f78c    0x35c  ddi_nand_ndd_write_sector.o [6]
+    .text                 ro code  0x0001fae8    0x668  ddi_nand_data_drive_erase.o [6]
+    .text                 ro code  0x00020150     0x5e  ddi_nand_ndd_flush.o [6]
+    .text                 ro code  0x000201b0     0x68  ddi_nand_data_drive_get_info.o [6]
+    .text                 ro code  0x00020218      0x4  ddi_nand_media_init.o [6]
+    .text                 ro code  0x0002021c      0xa  ddi_nand_media_init.o [6]
+    .text                 ro code  0x00020226     0x10  nonsequential_sectors_map.o [6]
+    .text                 ro code  0x00020236      0x4  nonsequential_sectors_map.o [6]
+    .text                 ro code  0x0002023a     0x16  nonsequential_sectors_map.o [6]
+    .text                 ro code  0x00020250     0x14  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x00020264      0x4  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x00020268      0x4  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x0002026c      0x4  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x00020270      0x4  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x00020274      0xa  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x0002027e      0xa  ddi_nand_media_discover.o [6]
+    .text                 ro code  0x00020288      0x8  red_black_tree.o [6]
+    .text                 ro code  0x00020290      0x4  ddi_nand_hal_nfcphymedia.o [6]
+    .text                 ro code  0x00020294      0xa  ddi_nand_hal_nfcphymedia.o [6]
+    .text                 ro code  0x0002029e      0x4  xpurevirtual.o [4]
+    .text                 ro code  0x000202a2     0xa6  packbits_init3.o [10]
+  KERNEL                  ro code  0x00020350    0x2c0  dispatch.o [9]
+  .iar.init_table         const    0x00020610     0x48  - Linker created -
+  .rodata                 const    0x00020658     0xb6  demo.o [1]
+  .rodata                 const    0x00020710     0x18  sh_format.o [11]
+  .rodata                 const    0x00020728     0x18  nandflash_wl_init.o [6]
+  .rodata                 const    0x00020740     0x34  dir_read.o [8]
+  .rodata                 const    0x00020774     0x54  init_nandflash.o [3]
+  .rodata                 const    0x000207c8     0x24  mqx.o [9]
+  .rodata                 const    0x000207ec    0x290  time_tables.o [9]
+  .rodata                 const    0x00020a7c     0x24  ddi_nand_media_init.o [6]
+  .rodata                 const    0x00020aa0     0x48  ddi_nand_media_init.o [6]
+  .rodata                 const    0x00020ae8     0x28  init_adc.o [3]
+  .rodata                 const    0x00020b10      0xc  init_esdhc.o [3]
+  .rodata                 const    0x00020b1c     0x14  init_i2c.o [3]
+  .rodata                 const    0x00020b30     0x24  init_sai.o [3]
+  .rodata                 const    0x00020b54     0x20  init_sci.o [3]
+  .rodata                 const    0x00020b74     0x18  hwtimer_systick.o [3]
+  .rodata                 const    0x00020b8c     0x2c  nonsequential_sectors_map.o [6]
+  .rodata                 const    0x00020bb8     0x28  nonsequential_sectors_map.o [6]
+  .rodata                 const    0x00020be0      0xc  nonsequential_sectors_map.o [6]
+  .rodata                 const    0x00020bec     0x24  ddi_nand_media_discover.o [6]
+  .rodata                 const    0x00020c10     0x24  ddi_nand_media_discover.o [6]
+  .rodata                 const    0x00020c34     0x14  red_black_tree.o [6]
+  .rodata                 const    0x00020c48     0x14  red_black_tree.o [6]
+  .rodata                 const    0x00020c5c     0x10  red_black_tree.o [6]
+  .rodata                 const    0x00020c6c     0x10  wlru.o [6]
+  .rodata                 const    0x00020c7c     0x28  deferred_task.o [6]
+  .rodata                 const    0x00020ca4     0x24  ddi_page.o [6]
+  .rodata                 const    0x00020cc8     0x18  zone_map_cache.o [6]
+  .rodata                 const    0x00020ce0     0x18  persistent_phy_map.o [6]
+  .rodata                 const    0x00020cf8     0x54  ddi_nand_hal_nfcphymedia.o [6]
+  .rodata                 const    0x00020d4c     0x38  ddi_nand_data_drive_init.o [6]
+  .rodata                 const    0x00020d84     0x18  persistent_map.o [6]
+  .rodata                 const    0x00020d9c     0x24  zone_map_section_page.o [6]
+  .rodata                 const    0x00020dc0     0x38  mqx_init.o [3]
+  .rodata                 const    0x00020df8      0x0  zero_init3.o [10]
+  .rodata                 const    0x00020df8      0x0  packbits_init3.o [10]
+  Initializer bytes       ro data  0x00020df8    0x12a  <for USER_DEFAULT_MEMORY-1>
+  Initializer bytes       ro data  0x00020f22      0x2  <for KERNEL_DATA-1>
+  FLASHX_POOL                      0x00021000      0x1  <Block>
+    .flashx               const    0x00021000      0x1  vectors.o [3]
+    .flashx               const    0x00021001      0x0  vectors.o [3]
+                                 - 0x00021001  0x20be1
+
+"P2":                                            0xa64
+  USER_MEMORY                      0x1fff0000    0xa5d  <Block>
+    USER_DEFAULT_MEMORY            0x1fff0000    0xa5d  <Block>
+      USER_DEFAULT_MEMORY-1
+                                   0x1fff0000    0x308  <Init block>
+        .data             inited   0x1fff0000     0x40  demo.o [1]
+        .data             inited   0x1fff0040     0x10  demo.o [1]
+        .data             inited   0x1fff0050      0xc  mfs_init.o [8]
+        .data             inited   0x1fff005c     0x14  nfc_wl.o [6]
+        .data             inited   0x1fff0070      0x8  mqx.o [9]
+        .data             inited   0x1fff0078     0xd0  mfs_format.o [8]
+        .data             inited   0x1fff0148     0x14  MT29F2G16.o [3]
+        .data             inited   0x1fff015c      0x8  init_sai.o [3]
+        .data             inited   0x1fff0164     0x1c  init_sai.o [3]
+        .data             inited   0x1fff0180      0xc  edma.o [3]
+        .data             inited   0x1fff018c    0x144  ddi_nand_media_definition.o [6]
+        .data             inited   0x1fff02d0     0x38  adt_kpdb.o [3]
+      .bss                zero     0x1fff0308     0x48  init_bsp.o [3]
+      .bss                zero     0x1fff0350    0x418  media_buffer_manager.o [6]
+      .bss                zero     0x1fff0768      0x4  mfs_init.o [8]
+      .bss                zero     0x1fff076c      0x4  nandflash_wl.o [6]
+      .bss                zero     0x1fff0770     0x30  io_util.o [9]
+      .bss                zero     0x1fff07a0     0x34  ddi_ldl_init.o [6]
+      .bss                zero     0x1fff07d4      0x8  nfc.o [3]
+      .bss                zero     0x1fff07dc      0x8  psp_mstiq.o [9]
+      .bss                zero     0x1fff07e4      0x4  ddi_nand_media_init.o [6]
+      .bss                zero     0x1fff07e8     0x68  ddi_nand_hal_globals.o [6]
+      .bss                zero     0x1fff0850      0x4  ddi_nand_hal_globals.o [6]
+      .bss                zero     0x1fff0854     0x14  krtc.o [3]
+      .bss                zero     0x1fff0868    0x180  edma.o [3]
+      .bss                zero     0x1fff09e8     0x18  simple_mutex.o [6]
+      .bss                zero     0x1fff0a00     0x30  ddi_nand_media_definition.o [6]
+      .bss                zero     0x1fff0a30     0x28  adc_kadc.o [3]
+      .bss                zero     0x1fff0a58      0x4  new.o [5]
+      .bss                zero     0x1fff0a5c      0x1  bsp_cm.o [3]
+  KERNEL_DATA                      0x1fff0a60      0x4  <Block>
+    KERNEL_DATA-1                  0x1fff0a60      0x4  <Init block>
+      .kernel_data        inited   0x1fff0a60      0x4  kernel_symbols.o [9]
+                                 - 0x1fff0a64    0xa64
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address     Size
+          -------     ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x755:
+          0x1fff0308  0x755
+
+Copy/packbits (__iar_packbits_init3)
+    1 source range, total size 0x12a (38% of destination):
+          0x00020df8  0x12a
+    1 destination range, total size 0x308:
+          0x1fff0000  0x308
+
+Copy/packbits (__iar_packbits_init3)
+    1 source range, total size 0x2 (50% of destination):
+          0x00020f22    0x2
+    1 destination range, total size 0x4:
+          0x1fff0a60    0x4
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                                   ro code  ro data  rw data
+    ------                                   -------  -------  -------
+D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_nandflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash Release\Obj: [1]
+    demo.o                                     2 404      212       80
+    ------------------------------------------------------------------
+    Total:                                     2 404      212       80
+
+command line: [2]
+    ------------------------------------------------------------------
+    Total:
+
+bsp.a: [3]
+    MT29F2G16.o                                             8       20
+    adc.o                                      1 130
+    adc_kadc.o                                 2 128                40
+    adc_mk60.o                                    36
+    adt_kpdb.o                                 1 960       22       56
+    bsp_cm.o                                   1 656                 1
+    edma.o                                       360        5      396
+    edma_kinetisf.o                              136
+    esdhc.o                                    2 426
+    esdhc_mk60.o                                  16
+    hwtimer.o                                    280
+    hwtimer_systick.o                            280       24
+    i2c_int.o                                    306
+    i2c_int_ki2c.o                             1 356
+    i2c_mk60.o                                    48
+    i2c_pol.o                                    302
+    i2c_pol_ki2c.o                             2 152
+    init_adc.o                                             40
+    init_bsp.o                                   472                72
+    init_esdhc.o                                           12
+    init_gpio.o                                1 208
+    init_hw.o                                    188
+    init_i2c.o                                             20
+    init_nandflash.o                                       84
+    init_sai.o                                             50       36
+    init_sci.o                                             32
+    io_sinit.o                                    48
+    krtc.o                                       796                20
+    mqx_init.o                                             56
+    mqx_main.o                                    16
+    nfc.o                                      1 892                 8
+    nfc_k60f120m.o                                12
+    sai_int.o                                    468
+    sai_int_ksai.o                             5 702
+    sai_mk60.o                                    68
+    serl_int.o                                 1 428
+    serl_int_kuart.o                             460
+    serl_mk60.o                                   68
+    serl_pol_kuart.o                           1 054
+    vectors.o                                           1 041
+    ------------------------------------------------------------------
+    Total:                                    28 452    1 394      649
+
+dl7M_tln.a: [4]
+    abort.o                                        6
+    exit.o                                         4
+    memset.o                                      20
+    strcat.o                                      28
+    strncmp.o                                     42
+    xpurevirtual.o                                 4
+    ------------------------------------------------------------------
+    Total:                                       104
+
+dlpp7M_tl_nc.a: [5]
+    cxxabi.o                                     184
+    delaop_0.o                                     4
+    delop_0.o                                     10
+    new.o                                                            4
+    newaop_0.o                                     8
+    newop_0.o                                     36
+    nomemory.o                                     4
+    ------------------------------------------------------------------
+    Total:                                       246                 4
+
+ffs.a: [6]
+    bad_block_table.o                            396
+    ddi_block.o                                  664
+    ddi_ldl_drive_get_info.o                     172
+    ddi_ldl_init.o                               564                52
+    ddi_ldl_iterator.o                           268
+    ddi_ldl_read.o                                40
+    ddi_ldl_util.o                               366
+    ddi_ldl_write.o                              374
+    ddi_metadata.o                               804
+    ddi_nand_data_drive_erase.o                1 640
+    ddi_nand_data_drive_get_info.o               104
+    ddi_nand_data_drive_init.o                   700       56
+    ddi_nand_data_drive_read_sector.o            928
+    ddi_nand_hal_common.o                        356
+    ddi_nand_hal_globals.o                                         108
+    ddi_nand_hal_init.o                          116
+    ddi_nand_hal_nfcphymedia.o                   814       84
+    ddi_nand_mapper_get_info.o                   488
+    ddi_nand_mapper_utilities.o                1 376
+    ddi_nand_mapper_zone_map_cache_lookup.o      540
+    ddi_nand_media_allocate.o                    460
+    ddi_nand_media_definition.o                           124      372
+    ddi_nand_media_discover.o                    682       72
+    ddi_nand_media_get_info.o                    192
+    ddi_nand_media_init.o                        706      108        4
+    ddi_nand_media_regions.o                      66
+    ddi_nand_media_shutdown.o                    224
+    ddi_nand_ndd_flush.o                          94
+    ddi_nand_ndd_write_sector.o                  860
+    ddi_nand_nssm_get_entry.o                    170
+    ddi_page.o                                   976       36
+    deferred_task.o                              172       40
+    deferred_task_queue.o                        708
+    double_list.o                                320
+    errcode.o                                     80
+    mapper.o                                   3 106
+    media_buffer_manager.o                     2 204             1 048
+    media_buffer_manager_init.o                  448
+    nandflash_wl.o                             1 912                 4
+    nandflash_wl_init.o                                    24
+    nfc_wl.o                                   2 696        8       20
+    nonsequential_sectors_map.o                5 134       96
+    page_order_map.o                             752
+    persistent_map.o                           2 296       24
+    persistent_phy_map.o                         696       24
+    phy_map.o                                    656
+    red_black_tree.o                           1 246       56
+    simple_mutex.o                               300                24
+    simple_timer.o                                24
+    wl_common.o                                   22
+    wlru.o                                       204       16
+    zone_map_cache.o                           1 612       24
+    zone_map_section_page.o                      776       36
+    ------------------------------------------------------------------
+    Total:                                    40 504      828    1 632
+
+m7M_tlv.a: [7]
+    DblAdd.o                                     232
+    DblCmpEq.o                                    32
+    DblCmpGe.o                                    46
+    DblCmpLe.o                                    46
+    DblDiv.o                                     582
+    DblMul.o                                     418
+    DblSub.o                                     364
+    DblToI32.o                                    76
+    fpinit_M.o                                    26
+    modf.o                                       192
+    ------------------------------------------------------------------
+    Total:                                     2 014
+
+mfs.a: [8]
+    dir_read.o                                   928       52
+    mfs_attribute.o                              208
+    mfs_cluster.o                                836
+    mfs_create.o                               1 024
+    mfs_data_sector.o                            144
+    mfs_delete.o                                 222
+    mfs_dir_entry.o                            1 524
+    mfs_directory.o                            1 798
+    mfs_fat.o                                    724
+    mfs_format.o                               1 760       79      208
+    mfs_handle.o                                 130
+    mfs_init.o                                 4 028        5       16
+    mfs_lfn.o                                  1 736
+    mfs_misc.o                                 1 764
+    mfs_open.o                                   742
+    mfs_parse.o                                1 024
+    mfs_read.o                                   656
+    mfs_rename.o                                 602
+    mfs_rw.o                                     828
+    mfs_search.o                               1 540
+    mfs_time.o                                   202
+    mfs_valdev.o                                 132
+    mfs_write.o                                1 120
+    ------------------------------------------------------------------
+    Total:                                    23 672      136      224
+
+psp.a: [9]
+    boot.o                                       100
+    cache.o                                       40
+    comp.o                                        18
+    dispatch.o                                   704
+    idletask.o                                    68
+    int.o                                        468
+    int_inst.o                                    16
+    int_vtab.o                                    16
+    io_dopr.o                                  2 964
+    io_fclos.o                                    40
+    io_ferr.o                                     12
+    io_fflsh.o                                    50
+    io_fgetc.o                                    54
+    io_fgetl.o                                   118
+    io_fgets.o                                    40
+    io_fopen.o                                   140
+    io_fp.o                                    1 686
+    io_fputc.o                                    48
+    io_fseek.o                                   112
+    io_fung.o                                     34
+    io_ghand.o                                    68
+    io_init.o                                     36
+    io_inst.o                                     28
+    io_instx.o                                   252
+    io_ioctl.o                                    56
+    io_pntf.o                                     40
+    io_read.o                                     80
+    io_spr.o                                      90
+    io_uinst.o                                   120
+    io_util.o                                    850                48
+    io_write.o                                    30
+    kernel_symbols.o                                        2        4
+    kinetis_mpu.o                                 20
+    lwevent.o                                    192
+    lwmem.o                                    1 092
+    lwsem.o                                      564
+    mqx.o                                        636       39        8
+    mutex.o                                      908
+    nvic.o                                       134
+    partition.o                                  980
+    psp_iinit.o                                   18
+    psp_mat1.o                                   158
+    psp_mat2.o                                   154
+    psp_mat3.o                                    50
+    psp_msti.o                                    92
+    psp_mstiq.o                                  104                 8
+    psp_seti.o                                    28
+    psp_tiad.o                                    68
+    psp_tinm.o                                    48
+    psp_tiol.o                                    38
+    psp_tise.o                                    72
+    psp_tisu.o                                    60
+    psp_tius.o                                   152
+    psp_tkti.o                                   124
+    queue.o                                      328
+    sc_irdyq.o                                   164
+    sched.o                                      268
+    stack_bu.o                                   162
+    strnlen.o                                     26
+    support.o                                     40
+    task.o                                     1 582
+    taskq.o                                      408
+    time.o                                     1 376
+    time_tables.o                                         656
+    timer.o                                    1 572
+    ------------------------------------------------------------------
+    Total:                                    19 996      697       68
+
+rt7M_tl.a: [10]
+    ABImemclr.o                                    6
+    ABImemclr4.o                                   6
+    ABImemcpy.o                                  118
+    ABImemset.o                                  102
+    ABImemset48.o                                 58
+    I64DivMod.o                                  306
+    I64DivZer.o                                    2
+    I64Shl.o                                      34
+    XXexit.o                                      12
+    cexit.o                                       10
+    cmain.o                                       22
+    cstartup_M.o                                  12
+    data_init3.o                                  40
+    memcmp.o                                      98
+    packbits_init3.o                             166
+    strcmp.o                                      66
+    strcpy.o                                      68
+    strlen.o                                      54
+    strncpy.o                                    108
+    zero_init3.o                                  34
+    ------------------------------------------------------------------
+    Total:                                     1 322
+
+shell.a: [11]
+    sh_cd.o                                      496
+    sh_cmdlist.o                                 136
+    sh_copy.o                                    756
+    sh_create.o                                  496
+    sh_del.o                                     428
+    sh_di.o                                    2 244
+    sh_dir.o                                     564
+    sh_disect.o                                  676
+    sh_exit.o                                     88
+    sh_format.o                                  668       24
+    sh_help.o                                    368
+    sh_mkdir.o                                   448
+    sh_pwd.o                                     208
+    sh_read.o                                    976
+    sh_rename.o                                  628
+    sh_rmdir.o                                   492
+    sh_sh.o                                      312
+    sh_type.o                                    472
+    sh_util.o                                    496
+    sh_write.o                                 1 128
+    shell.o                                      680
+    ------------------------------------------------------------------
+    Total:                                    12 760       24
+
+    Gaps                                          94        2
+    Linker created                                         76
+----------------------------------------------------------------------
+    Grand Total:                             131 568    3 369    2 657
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                      Address   Size  Type      Object
+-----                      -------   ----  ----      ------
+?main                   0x000004dd         Code  Gb  cmain.o [10]
+BAUDRATE_ICR            0x00003ca4  0x100  Data  Lc  i2c_pol_ki2c.o [3]
+BAUDRATE_MULT           0x00003c98    0xc  Data  Lc  i2c_pol_ki2c.o [3]
+BYTE_SIZES              0x0001ae78   0x14  Data  Lc  sh_format.o [11]
+CFMPROTROM$$Base        0x00000400          --   Gb  - Linker created -
+CFMPROTROM$$Limit       0x00000414          --   Gb  - Linker created -
+ClockConfigurationID    0x1fff0a5c    0x1  Data  Lc  bsp_cm.o [3]
+Cpu_MCGAutoTrim         0x00000cd1   0x40  Code  Gb  bsp_cm.o [3]
+Cpu_SetClockConfiguration
+                        0x00000fad   0xcc  Code  Gb  bsp_cm.o [3]
+Cpu_SetMCG              0x00000d11  0x29c  Code  Lc  bsp_cm.o [3]
+DoubleList::DoubleList()
+                        0x00015821    0x2  Code  Gb  double_list.o [6]
+DoubleList::DoubleList() [subobject]
+                        0x0001581d    0x2  Code  Gb  double_list.o [6]
+DoubleList::Node::Node() [subobject]
+                        0x0001581f    0x2  Code  Gb  double_list.o [6]
+DoubleList::clear()     0x000158bb    0x2  Code  Gb  double_list.o [6]
+DoubleList::insertAfter(DoubleList::Node *, DoubleList::Node *)
+                        0x0001582b   0x4a  Code  Gb  double_list.o [6]
+DoubleList::insertBefore(DoubleList::Node *, DoubleList::Node *)
+                        0x00015875   0x14  Code  Gb  double_list.o [6]
+DoubleList::remove(DoubleList::Node *)
+                        0x00015889   0x32  Code  Gb  double_list.o [6]
+DriveAdd(LogicalDrive *)
+                        0x000104bd   0x28  Code  Gb  ddi_ldl_init.o [6]
+DriveCreateIterator     0x00012d0d   0x1c  Code  Gb  ddi_ldl_iterator.o [6]
+DriveErase              0x00010849   0x18  Code  Gb  ddi_ldl_write.o [6]
+DriveFindEmptyEntry()   0x00007c85   0x24  Code  Gb  ddi_ldl_util.o [6]
+DriveFlush              0x00010831   0x18  Code  Gb  ddi_ldl_write.o [6]
+DriveGetDriveFromTag(unsigned char)
+                        0x00007c59   0x2c  Code  Gb  ddi_ldl_util.o [6]
+DriveGetInfo            0x00010a2d   0x28  Code  Gb  ddi_ldl_drive_get_info.o [6]
+DriveInit               0x0001049b   0x22  Code  Gb  ddi_ldl_init.o [6]
+DriveIteratorDispose    0x00012d71    0xc  Code  Gb  ddi_ldl_iterator.o [6]
+DriveIteratorNext       0x00012d29   0x42  Code  Gb  ddi_ldl_iterator.o [6]
+DriveReadSector         0x0001097f   0x28  Code  Gb  ddi_ldl_read.o [6]
+DriveRemove(unsigned char)
+                        0x000104e5   0x52  Code  Gb  ddi_ldl_init.o [6]
+DriveRepair             0x00010929   0x56  Code  Gb  ddi_ldl_write.o [6]
+DriveShutdown           0x000108fd   0x2c  Code  Gb  ddi_ldl_write.o [6]
+DriveWriteSector        0x00010809   0x28  Code  Gb  ddi_ldl_write.o [6]
+FLASHX_POOL$$Base       0x00021000          --   Gb  - Linker created -
+FLASHX_POOL$$Limit      0x00021001          --   Gb  - Linker created -
+KERNEL_DATA$$Base       0x1fff0a60          --   Gb  - Linker created -
+KERNEL_DATA$$Limit      0x1fff0a64          --   Gb  - Linker created -
+LogicalDrive::LogicalDrive()
+                        0x00010563   0x2a  Code  Gb  ddi_ldl_init.o [6]
+LogicalDrive::LogicalDrive() [subobject]
+                        0x00010417    0x2  Code  Gb  ddi_ldl_init.o [6]
+LogicalDrive::getInfo(unsigned int, void *)
+                        0x000109a9   0x84  Code  Gb  ddi_ldl_drive_get_info.o [6]
+LogicalMedia::LogicalMedia()
+                        0x00010541   0x22  Code  Gb  ddi_ldl_init.o [6]
+LogicalMedia::LogicalMedia() [subobject]
+                        0x00010415    0x2  Code  Gb  ddi_ldl_init.o [6]
+LogicalMedia::getInfo(unsigned int, void *)
+                        0x00007d55   0x58  Code  Gb  ddi_ldl_util.o [6]
+MCGTransitionMatrix     0x000012b4   0x1c  Data  Lc  bsp_cm.o [3]
+MFS_Add_cluster_to_chain
+                        0x0000dc1b    0x6  Code  Gb  mfs_cluster.o [8]
+MFS_Attribute_match     0x0001160d   0x4c  Code  Gb  mfs_parse.o [8]
+MFS_Bad_clusters        0x0000dc8b   0x44  Code  Gb  mfs_cluster.o [8]
+MFS_Change_current_dir  0x0000e087  0x144  Code  Gb  mfs_directory.o [8]
+MFS_Check_dir_exist     0x0000e1cb   0x64  Code  Gb  mfs_directory.o [8]
+MFS_Check_search_string_for_8dot3
+                        0x00011161   0x48  Code  Gb  mfs_search.o [8]
+MFS_Check_search_string_for_all
+                        0x0001112f   0x32  Code  Gb  mfs_search.o [8]
+MFS_Clear_cluster       0x0000dc21   0x6a  Code  Gb  mfs_cluster.o [8]
+MFS_Close_Device        0x0000b07f  0x11a  Code  Gb  mfs_init.o [8]
+MFS_Close_file          0x0000ccc5   0xca  Code  Gb  mfs_open.o [8]
+MFS_Compress_nondotfile
+                        0x000114cb   0xa4  Code  Gb  mfs_parse.o [8]
+MFS_Create_directory_entry
+                        0x0000f01d  0x3f0  Code  Gb  mfs_dir_entry.o [8]
+MFS_Create_entry_slave  0x0000f483  0x128  Code  Gb  mfs_dir_entry.o [8]
+MFS_Create_file         0x0000cf49  0x1e0  Code  Gb  mfs_create.o [8]
+MFS_Create_new_file     0x0000d12f   0xa4  Code  Gb  mfs_create.o [8]
+MFS_Create_subdir       0x0000dd7d  0x1c0  Code  Gb  mfs_directory.o [8]
+MFS_Create_temp_file    0x0000d1d9  0x13e  Code  Gb  mfs_create.o [8]
+MFS_Decrement_free_clusters
+                        0x0000da59   0x20  Code  Gb  mfs_cluster.o [8]
+MFS_Default_Format      0x0001010b   0x80  Code  Gb  mfs_format.o [8]
+MFS_Delete_file         0x0000ece5   0xde  Code  Gb  mfs_delete.o [8]
+MFS_Dirname_valid       0x000115ed   0x20  Code  Gb  mfs_parse.o [8]
+MFS_Error_text          0x0000b363  0x188  Code  Gb  mfs_misc.o [8]
+MFS_Expand_dotfile      0x00011401   0xca  Code  Gb  mfs_parse.o [8]
+MFS_Expand_wildcard     0x00011385   0x7c  Code  Gb  mfs_parse.o [8]
+MFS_Extend_chain        0x0000db5d   0xbe  Code  Gb  mfs_cluster.o [8]
+MFS_Filename_valid      0x0001156f   0x7e  Code  Gb  mfs_parse.o [8]
+MFS_Find_directory      0x00010db5  0x10e  Code  Gb  mfs_search.o [8]
+MFS_Find_directory_entry
+                        0x00010ba5  0x20a  Code  Gb  mfs_search.o [8]
+MFS_Find_entry_on_disk  0x00010ec3   0xb0  Code  Gb  mfs_search.o [8]
+MFS_Find_first_file     0x0000e22f   0xe2  Code  Gb  mfs_directory.o [8]
+MFS_Find_handle         0x000111ff   0x2c  Code  Gb  mfs_handle.o [8]
+MFS_Find_next_file      0x0000e317   0x24  Code  Gb  mfs_directory.o [8]
+MFS_Find_next_slave     0x00010f79  0x1b0  Code  Gb  mfs_search.o [8]
+MFS_Find_unused_cluster_from
+                        0x0000da79   0x58  Code  Gb  mfs_cluster.o [8]
+MFS_Flush_caches        0x0000f91b   0x32  Code  Gb  mfs_rw.o [8]
+MFS_Flush_data_sector_buffer
+                        0x00010301   0x36  Code  Gb  mfs_data_sector.o [8]
+MFS_Flush_directory_sector_buffer
+                        0x0000f84f   0x42  Code  Gb  mfs_rw.o [8]
+MFS_Flush_fat_cache     0x0000f94d   0x7e  Code  Gb  mfs_fat.o [8]
+MFS_Format              0x0000fc21  0x4e4  Code  Gb  mfs_format.o [8]
+MFS_Format_and_test     0x00010269   0x2c  Code  Gb  mfs_format.o [8]
+MFS_Free_handle         0x000111e1   0x1e  Code  Gb  mfs_handle.o [8]
+MFS_Get_current_dir     0x0000e059   0x2e  Code  Gb  mfs_directory.o [8]
+MFS_Get_date_time       0x0000e553   0x50  Code  Gb  mfs_time.o [8]
+MFS_Get_disk_free_space
+                        0x0000dcf1   0x44  Code  Gb  mfs_cluster.o [8]
+MFS_Get_disk_free_space_internal
+                        0x0000dd35   0x48  Code  Gb  mfs_cluster.o [8]
+MFS_Get_file_attributes
+                        0x0000e483   0x4e  Code  Gb  mfs_attribute.o [8]
+MFS_Get_handle          0x000111a9   0x32  Code  Gb  mfs_handle.o [8]
+MFS_Get_volume          0x0000e405   0x7e  Code  Gb  mfs_directory.o [8]
+MFS_Increment_dir_index
+                        0x0000f5b1   0x60  Code  Gb  mfs_dir_entry.o [8]
+MFS_Increment_free_clusters
+                        0x0000da39   0x20  Code  Gb  mfs_cluster.o [8]
+MFS_Invalidate_data_sector
+                        0x00010337   0x22  Code  Gb  mfs_data_sector.o [8]
+MFS_Invalidate_directory_sector
+                        0x0000f82d   0x22  Code  Gb  mfs_rw.o [8]
+MFS_Is_dot_directory    0x0001168b   0x22  Code  Gb  mfs_parse.o [8]
+MFS_Last_cluster        0x0000dcd5   0x1c  Code  Gb  mfs_cluster.o [8]
+MFS_Mount_drive_internal
+                        0x0000ab61  0x400  Code  Gb  mfs_init.o [8]
+MFS_Move_file_pointer   0x0000cd8f  0x142  Code  Gb  mfs_open.o [8]
+MFS_Open_Device         0x0000af83   0xfc  Code  Gb  mfs_init.o [8]
+MFS_Open_file           0x0000cbf1   0xd4  Code  Gb  mfs_open.o [8]
+MFS_Parse_Out_Device_Name
+                        0x0000af67   0x1c  Code  Gb  mfs_init.o [8]
+MFS_Parse_next_filename
+                        0x00011659   0x32  Code  Gb  mfs_parse.o [8]
+MFS_Parse_pathname      0x000112c7   0x96  Code  Gb  mfs_parse.o [8]
+MFS_Put_fat             0x0000fb2d   0xf4  Code  Gb  mfs_fat.o [8]
+MFS_Read                0x0000d3ab  0x228  Code  Gb  mfs_read.o [8]
+MFS_Read_data_sector    0x00010359   0x38  Code  Gb  mfs_data_sector.o [8]
+MFS_Read_device_sector  0x0000f817   0x16  Code  Gb  mfs_rw.o [8]
+MFS_Read_device_sectors
+                        0x0000f767   0xb0  Code  Gb  mfs_rw.o [8]
+MFS_Read_directory_sector
+                        0x0000f891   0x8a  Code  Gb  mfs_rw.o [8]
+MFS_Read_fat            0x0000f9f1   0x84  Code  Gb  mfs_fat.o [8]
+MFS_Release_chain       0x0000dad1   0x8c  Code  Gb  mfs_cluster.o [8]
+MFS_Remove_subdir       0x0000df43  0x116  Code  Gb  mfs_directory.o [8]
+MFS_Rename_file         0x0000edc3  0x25a  Code  Gb  mfs_rename.o [8]
+MFS_Set_date_time       0x0000e5a3   0x7a  Code  Gb  mfs_time.o [8]
+MFS_Set_file_attributes
+                        0x0000e4d1   0x82  Code  Gb  mfs_attribute.o [8]
+MFS_Set_volume          0x0000e33b   0xc4  Code  Gb  mfs_directory.o [8]
+MFS_Test_unused_clusters
+                        0x0001018d   0xd6  Code  Gb  mfs_format.o [8]
+MFS_Update_entry        0x0000f417   0x6c  Code  Gb  mfs_dir_entry.o [8]
+MFS_Wildcard_match      0x00011361   0x24  Code  Gb  mfs_parse.o [8]
+MFS_Write               0x0000d5d9  0x45a  Code  Gb  mfs_write.o [8]
+MFS_Write_back_fat      0x0000f9cb   0x26  Code  Gb  mfs_fat.o [8]
+MFS_Write_device_sector
+                        0x0000f751   0x16  Code  Gb  mfs_rw.o [8]
+MFS_Write_device_sectors
+                        0x0000f611  0x13a  Code  Gb  mfs_rw.o [8]
+MFS_alloc_2paths        0x0000b327   0x2e  Code  Gb  mfs_misc.o [8]
+MFS_alloc_path          0x0000b305   0x22  Code  Gb  mfs_misc.o [8]
+MFS_free_drive_data     0x0000ab29   0x38  Code  Lc  mfs_init.o [8]
+MFS_free_path           0x0000b355    0xe  Code  Gb  mfs_misc.o [8]
+MFS_get_cluster_from_fat
+                        0x0000fa75   0xb2  Code  Gb  mfs_fat.o [8]
+MFS_get_lfn             0x0000eaf5   0x38  Code  Gb  mfs_lfn.o [8]
+MFS_get_lfn_dir_cluster
+                        0x0000ebe5   0xee  Code  Gb  mfs_lfn.o [8]
+MFS_get_lfn_of_entry    0x0000eb2d   0xb2  Code  Gb  mfs_lfn.o [8]
+MFS_get_prev_cluster    0x0000ea77   0x7e  Code  Gb  mfs_lfn.o [8]
+MFS_increment_lfn       0x0000e8ad   0x64  Code  Gb  mfs_lfn.o [8]
+MFS_is_read_only        0x0000b199   0x16  Code  Gb  mfs_misc.o [8]
+MFS_is_valid_lfn        0x0000e745   0x68  Code  Gb  mfs_lfn.o [8]
+MFS_lfn_checksum        0x0000ea5d   0x1a  Code  Gb  mfs_lfn.o [8]
+MFS_lfn_dirname_valid   0x0000e7ad   0x20  Code  Gb  mfs_lfn.o [8]
+MFS_lfn_extract         0x0000e85f   0x4e  Code  Gb  mfs_lfn.o [8]
+MFS_lfn_match           0x0000e7cd   0x92  Code  Gb  mfs_lfn.o [8]
+MFS_lfn_name_to_entry   0x0000e9d1   0x86  Code  Gb  mfs_lfn.o [8]
+MFS_lfn_to_sfn          0x0000e61d  0x128  Code  Gb  mfs_lfn.o [8]
+MFS_lock                0x0000b1af   0x22  Code  Gb  mfs_misc.o [8]
+MFS_lock_dos_disk       0x0000b1d1   0x28  Code  Gb  mfs_misc.o [8]
+MFS_lock_handle         0x0000b1f9   0x34  Code  Gb  mfs_misc.o [8]
+MFS_mem_alloc           0x0000b29b   0x14  Code  Gb  mfs_misc.o [8]
+MFS_mem_alloc_system    0x0000b2d7   0x14  Code  Gb  mfs_misc.o [8]
+MFS_mem_alloc_system_zero
+                        0x0000b2eb   0x14  Code  Gb  mfs_misc.o [8]
+MFS_mem_alloc_zero      0x0000b2af   0x28  Code  Gb  mfs_misc.o [8]
+MFS_next_data_sector    0x0000d349   0x62  Code  Gb  mfs_read.o [8]
+MFS_remove_lfn_entries  0x0000e911   0xba  Code  Gb  mfs_lfn.o [8]
+MFS_strupr              0x000112ad   0x1a  Code  Gb  mfs_parse.o [8]
+MFS_unlock              0x0000b241   0x5a  Code  Gb  mfs_misc.o [8]
+MQX_init_struct         0x00020dc8   0x30  Data  Gb  mqx_init.o [3]
+MQX_template_list       0x1fff0000   0x40  Data  Gb  demo.o [1]
+MediaAllocateFromPreDefineRegions
+                        0x0001047b   0x20  Code  Gb  ddi_ldl_init.o [6]
+MediaBuildFromPreDefine
+                        0x00010471    0xa  Code  Gb  ddi_ldl_init.o [6]
+MediaGetInfo            0x00007ca9   0x2a  Code  Gb  ddi_ldl_util.o [6]
+MediaGetMaximumAuxSize  0x00007d15   0x36  Code  Gb  ddi_ldl_util.o [6]
+MediaGetMaximumSectorSize
+                        0x00007cdf   0x36  Code  Gb  ddi_ldl_util.o [6]
+MediaGetMediaFromIndex(unsigned int)
+                        0x00007c45   0x14  Code  Gb  ddi_ldl_util.o [6]
+MediaInit               0x00010423   0x4e  Code  Gb  ddi_ldl_init.o [6]
+MediaShutdown           0x0001086d   0x8c  Code  Gb  ddi_ldl_write.o [6]
+NFCNandMedia::NFCNandMedia(unsigned int)
+                        0x000154fd   0x10  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::checkSpaceForMetadata()
+                        0x0001575d   0x18  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::copyPages(NandPhysicalMedia *, unsigned int, unsigned int, unsigned int, unsigned char *, unsigned char *, NandCopyPagesFilter *, unsigned int *)
+                        0x00015643   0xc2  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::eraseBlock(unsigned int)
+                        0x0001562d   0x16  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::getDeviceName()
+                        0x00020291    0x4  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::initChipParam()
+                        0x00015519   0x30  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::initHalContextParams()
+                        0x00015549   0x64  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::isBlockBad(unsigned int, unsigned char *, bool, unsigned long *)
+                        0x00015705   0x22  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::markBlockBad(unsigned int, unsigned char *, unsigned char *)
+                        0x00015727   0x30  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::readID(unsigned char *)
+                        0x000155ad   0x10  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::readMetadata(unsigned int, unsigned char *)
+                        0x000155e5   0x24  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::readPage(unsigned int, unsigned char *, unsigned char *)
+                        0x000155bd   0x28  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::writePage(unsigned int, unsigned char const *, unsigned char const *)
+                        0x00015609   0x24  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NFCNandMedia::~NFCNandMedia() [deleting]
+                        0x00020295    0xa  Code  Gb  ddi_nand_hal_nfcphymedia.o [6]
+NandHal::getChipSelectForAbsoluteBlock(unsigned int)
+                        0x00007b03   0x34  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::getChipSelectForAbsolutePage(unsigned int)
+                        0x00007b37   0x12  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::getNand(unsigned int)
+                        0x00007ae5   0x1e  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::getNandForAbsoluteBlock(unsigned int)
+                        0x00007b49    0xc  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::getNandForAbsolutePage(unsigned int)
+                        0x00007b55    0xc  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::getParameters()
+                        0x00007ae1    0x4  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::getTotalBlockCount()
+                        0x00007b61    0x6  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::init()         0x00012fe5   0x4a  Code  Gb  ddi_nand_hal_init.o [6]
+NandHal::isAbsoluteBlockValid(unsigned int)
+                        0x00007b67   0x20  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::isAbsolutePageValid(unsigned int)
+                        0x00007b87    0xc  Code  Gb  ddi_nand_hal_common.o [6]
+NandHal::shutdown()     0x0001302f   0x26  Code  Gb  ddi_nand_hal_init.o [6]
+NandHalSetMqxPtr        0x00010419    0xa  Code  Gb  ddi_ldl_init.o [6]
+PE_CpuClockConfigurations
+                        0x000012d0   0x78  Data  Gb  bsp_cm.o [3]
+PE_low_level_init       0x0000118f   0x76  Code  Gb  bsp_cm.o [3]
+RedBlackTree::NilNode::getKey() const
+                        0x00020289    0x8  Code  Gb  red_black_tree.o [6]
+RedBlackTree::RedBlackTree()
+                        0x000172d5   0x58  Code  Gb  red_black_tree.o [6]
+RedBlackTree::RootNode::getKey() const
+                        0x00000cc7    0xa  Code  Gb  red_black_tree.o [6]
+RedBlackTree::checkAssumptions() const
+                        0x0001769b   0x3c  Code  Gb  red_black_tree.o [6]
+RedBlackTree::deleteFixUp(RedBlackTree::Node *)
+                        0x000174fd   0xe0  Code  Gb  red_black_tree.o [6]
+RedBlackTree::find(long long) const
+                        0x00017339   0x3c  Code  Gb  red_black_tree.o [6]
+RedBlackTree::getSuccessorOf(RedBlackTree::Node *) const
+                        0x000174cb   0x32  Code  Gb  red_black_tree.o [6]
+RedBlackTree::insert(RedBlackTree::Node *)
+                        0x00017433   0x98  Code  Gb  red_black_tree.o [6]
+RedBlackTree::insertFixUp(RedBlackTree::Node *)
+                        0x000173cd   0x66  Code  Gb  red_black_tree.o [6]
+RedBlackTree::leftRotate(RedBlackTree::Node *)
+                        0x00017375   0x2c  Code  Gb  red_black_tree.o [6]
+RedBlackTree::remove(RedBlackTree::Node *)
+                        0x000175dd   0xbe  Code  Gb  red_black_tree.o [6]
+RedBlackTree::rightRotate(RedBlackTree::Node *)
+                        0x000173a1   0x2c  Code  Gb  red_black_tree.o [6]
+Region$$Table$$Base     0x00020610          --   Gb  - Linker created -
+Region$$Table$$Limit    0x00020658          --   Gb  - Linker created -
+Shell                   0x0000c079  0x1e4  Code  Gb  shell.o [11]
+Shell_cd                0x00019125  0x100  Code  Gb  sh_cd.o [11]
+Shell_check_help_request
+                        0x0000c407   0x30  Code  Gb  sh_util.o [11]
+Shell_command_list      0x00019315   0x6a  Code  Gb  sh_cmdlist.o [11]
+Shell_commands          0x0000a0b4   0xc8  Data  Gb  demo.o [1]
+Shell_copy              0x0001939d  0x16e  Code  Gb  sh_copy.o [11]
+Shell_create            0x000196c1   0xd2  Code  Gb  sh_create.o [11]
+Shell_del               0x000198b1   0xdc  Code  Gb  sh_del.o [11]
+Shell_di                0x00019cd5  0x17a  Code  Gb  sh_di.o [11]
+Shell_dir               0x0001a321   0xf4  Code  Gb  sh_dir.o [11]
+Shell_disect            0x0001a8f5  0x158  Code  Gb  sh_disect.o [11]
+Shell_exit              0x0001ab99   0x46  Code  Gb  sh_exit.o [11]
+Shell_format            0x0001abf1  0x11c  Code  Gb  sh_format.o [11]
+Shell_get_current_filesystem
+                        0x0000c437   0x30  Code  Gb  sh_util.o [11]
+Shell_get_current_filesystem_name
+                        0x0000c467   0x32  Code  Gb  sh_util.o [11]
+Shell_help              0x0001ae8d   0xc2  Code  Gb  sh_help.o [11]
+Shell_mkdir             0x0001affd   0xd0  Code  Gb  sh_mkdir.o [11]
+Shell_parse_command_line
+                        0x0000c321   0x66  Code  Gb  sh_util.o [11]
+Shell_parse_int_32      0x0000c3bd   0x44  Code  Gb  sh_util.o [11]
+Shell_parse_uint_32     0x0000c387   0x30  Code  Gb  sh_util.o [11]
+Shell_pwd               0x0001b1bd   0x6a  Code  Gb  sh_pwd.o [11]
+Shell_read              0x0001b28d  0x188  Code  Gb  sh_read.o [11]
+Shell_rename            0x0001b65d  0x12a  Code  Gb  sh_rename.o [11]
+Shell_rmdir             0x0001b8d1   0xe6  Code  Gb  sh_rmdir.o [11]
+Shell_set_current_filesystem
+                        0x0000c499   0x46  Code  Gb  sh_util.o [11]
+Shell_set_current_filesystem_by_name
+                        0x0000c4e5   0x1c  Code  Gb  sh_util.o [11]
+Shell_sh                0x0001babd   0x9c  Code  Gb  sh_sh.o [11]
+Shell_type              0x0001bbf5   0xdc  Code  Gb  sh_type.o [11]
+Shell_write             0x0001bdcd  0x1e4  Code  Gb  sh_write.o [11]
+SimpleMutex::CreateMutexAttr()
+                        0x00012ecf   0x1e  Code  Gb  simple_mutex.o [6]
+SimpleMutex::DestroyMutex(mutex_struct *)
+                        0x00012f05    0xe  Code  Gb  simple_mutex.o [6]
+SimpleMutex::InitMutex(mutex_struct *)
+                        0x00012eed   0x18  Code  Gb  simple_mutex.o [6]
+SimpleMutex::SimpleMutex(mutex_struct &)
+                        0x00012f13   0x24  Code  Gb  simple_mutex.o [6]
+SimpleMutex::SimpleMutex(mutex_struct &) [subobject]
+                        0x00012eb9    0x8  Code  Gb  simple_mutex.o [6]
+SimpleMutex::m_mutexattr
+                        0x1fff09ec   0x14  Data  Gb  simple_mutex.o [6]
+SimpleMutex::~SimpleMutex()
+                        0x00012f45    0xe  Code  Gb  simple_mutex.o [6]
+SimpleMutex::~SimpleMutex() [subobject]
+                        0x00012ec1    0xe  Code  Gb  simple_mutex.o [6]
+TEXTSECTION$$Base       0x00000420          --   Gb  - Linker created -
+TEXTSECTION$$Limit      0x00020348          --   Gb  - Linker created -
+Thunk for (offset -20) nand::NonsequentialSectorsMap::getWeight() const
+                        0x00020237    0x4  Code  Gb  nonsequential_sectors_map.o [6]
+Thunk for (offset -20) nand::NonsequentialSectorsMap::isNodeValid() const
+                        0x00020227   0x10  Code  Gb  nonsequential_sectors_map.o [6]
+USER_DEFAULT_MEMORY$$Base
+                        0x1fff0000          --   Gb  - Linker created -
+USER_DEFAULT_MEMORY$$Limit
+                        0x1fff0a5d          --   Gb  - Linker created -
+USER_MEMORY$$Base       0x1fff0000          --   Gb  - Linker created -
+USER_MEMORY$$Limit      0x1fff0a5d          --   Gb  - Linker created -
+Virtual function table for NFCNandMedia
+                        0x00020cf8   0x54  Data  Gb  ddi_nand_hal_nfcphymedia.o [6]
+Virtual function table for RedBlackTree
+                        0x00020c5c   0x10  Data  Gb  red_black_tree.o [6]
+Virtual function table for RedBlackTree::NilNode
+                        0x00020c48   0x14  Data  Gb  red_black_tree.o [6]
+Virtual function table for RedBlackTree::RootNode
+                        0x00020c34   0x14  Data  Gb  red_black_tree.o [6]
+Virtual function table for WeightedLRUList::Node
+                        0x00020c6c   0x10  Data  Gb  wlru.o [6]
+Virtual function table for nand::BootRegion
+                        0x00020c10   0x24  Data  Gb  ddi_nand_media_discover.o [6]
+Virtual function table for nand::DataDrive
+                        0x00020d4c   0x38  Data  Gb  ddi_nand_data_drive_init.o [6]
+Virtual function table for nand::DataRegion
+                        0x00020bec   0x24  Data  Gb  ddi_nand_media_discover.o [6]
+Virtual function table for nand::DeferredTask
+                        0x00020c7c   0x28  Data  Gb  deferred_task.o [6]
+Virtual function table for nand::Media
+                        0x00020aa0   0x48  Data  Gb  ddi_nand_media_init.o [6]
+Virtual function table for nand::NonsequentialSectorsMap
+                        0x00020b8c   0x2c  Data  Gb  nonsequential_sectors_map.o [6]
+Virtual function table for nand::NonsequentialSectorsMap::CopyPagesFlagFilter
+                        0x00020be0    0xc  Data  Gb  nonsequential_sectors_map.o [6]
+Virtual function table for nand::Page
+                        0x00020ca4   0x24  Data  Gb  ddi_page.o [6]
+Virtual function table for nand::PersistentMap
+                        0x00020d84   0x18  Data  Gb  persistent_map.o [6]
+Virtual function table for nand::PersistentPhyMap
+                        0x00020ce0   0x18  Data  Gb  persistent_phy_map.o [6]
+Virtual function table for nand::RelocateVirtualBlockTask
+                        0x00020bb8   0x28  Data  Gb  nonsequential_sectors_map.o [6]
+Virtual function table for nand::SystemRegion
+                        0x00020a7c   0x24  Data  Gb  ddi_nand_media_init.o [6]
+Virtual function table for nand::ZoneMapCache
+                        0x00020cc8   0x18  Data  Gb  zone_map_cache.o [6]
+Virtual function table for nand::ZoneMapSectionPage
+                        0x00020d9c   0x24  Data  Gb  zone_map_section_page.o [6]
+WeightedLRUList::Node::Node()
+                        0x000177db   0x12  Code  Gb  wlru.o [6]
+WeightedLRUList::Node::Node() [subobject]
+                        0x000177a1    0x8  Code  Gb  wlru.o [6]
+WeightedLRUList::WeightedLRUList(int, int, unsigned int)
+                        0x000177a9   0x32  Code  Gb  wlru.o [6]
+WeightedLRUList::insert(WeightedLRUList::Node *)
+                        0x000177f1   0x66  Code  Gb  wlru.o [6]
+WeightedLRUList::select()
+                        0x00017857   0x16  Code  Gb  wlru.o [6]
+_BSP_sram_pool          0x1fff0308    0x4  Data  Gb  init_bsp.o [3]
+_MFS_handle_pool_grow   0x1fff0054    0x4  Data  Gb  mfs_init.o [8]
+_MFS_handle_pool_init   0x1fff0050    0x4  Data  Gb  mfs_init.o [8]
+_MFS_handle_pool_max    0x1fff0058    0x4  Data  Gb  mfs_init.o [8]
+_MFS_pool_id            0x1fff0768    0x4  Data  Gb  mfs_init.o [8]
+_MT29F2G16_organization_16bit
+                        0x1fff0148   0x14  Data  Gb  MT29F2G16.o [3]
+__BOOT_STACK_ADDRESS {Abs}
+                        0x2000fef0          --   Gb  command line/config [2]
+__DEFAULT_INTERRUPT_STACK_SIZE {Abs}
+                        0x00000400          --   Gb  command line/config [2]
+__DEFAULT_PROCESSOR_NUMBER {Abs}
+                        0x00000001          --   Gb  command line/config [2]
+__EXTERNAL_LCD_BASE {Abs}
+                        0x60000000          --   Gb  command line/config [2]
+__EXTERNAL_LCD_DC_BASE {Abs}
+                        0x60010000          --   Gb  command line/config [2]
+__EXTERNAL_LCD_SIZE {Abs}
+                        0x0001ffff          --   Gb  command line/config [2]
+__EXTERNAL_MRAM_RAM_BASE {Abs}
+                        0x60000000          --   Gb  command line/config [2]
+__EXTERNAL_MRAM_RAM_SIZE {Abs}
+                        0x00080000          --   Gb  command line/config [2]
+__EXTERNAL_MRAM_ROM_BASE {Abs}
+                        0x60000000          --   Gb  command line/config [2]
+__EXTERNAL_MRAM_ROM_SIZE {Abs}
+                        0x00000000          --   Gb  command line/config [2]
+__FLASHX_END_ADDR {Abs}
+                        0x00100000          --   Gb  command line/config [2]
+__FLASHX_SECT_SIZE {Abs}
+                        0x00001000          --   Gb  command line/config [2]
+__FLASHX_START_ADDR     0x00021000    0x1  Data  Gb  vectors.o [3]
+__INTERNAL_FLASH_BASE {Abs}
+                        0x00000000          --   Gb  command line/config [2]
+__INTERNAL_FLASH_SIZE {Abs}
+                        0x00100000          --   Gb  command line/config [2]
+__INTERNAL_FLEXNVM_BASE {Abs}
+                        0x00000000          --   Gb  command line/config [2]
+__INTERNAL_FLEXNVM_SIZE {Abs}
+                        0x00000000          --   Gb  command line/config [2]
+__INTERNAL_SRAM_BASE {Abs}
+                        0x1fff0000          --   Gb  command line/config [2]
+__INTERNAL_SRAM_SIZE {Abs}
+                        0x00020000          --   Gb  command line/config [2]
+__KERNEL_AREA_END {Abs}
+                        0x20007ff0          --   Gb  command line/config [2]
+__KERNEL_AREA_START {Abs}
+                        0x1fff0000          --   Gb  command line/config [2]
+__KERNEL_DATA_END {Abs}
+                        0x2000fff0          --   Gb  command line/config [2]
+__KERNEL_DATA_START     0x1fff0a60         Data  Gb  kernel_symbols.o [9]
+__SRAM_POOL {Abs}       0x1fff0000          --   Gb  command line/config [2]
+__UNCACHED_DATA_END {Abs}
+                        0x2000fff0          --   Gb  command line/config [2]
+__UNCACHED_DATA_SIZE {Abs}
+                        0x00020000          --   Gb  command line/config [2]
+__UNCACHED_DATA_START {Abs}
+                        0x1fff0000          --   Gb  command line/config [2]
+__USER_AREA_END {Abs}   0x2000fff0          --   Gb  command line/config [2]
+__USER_AREA_START {Abs}
+                        0x20008000          --   Gb  command line/config [2]
+__VECTOR_TABLE_RAM_START {Abs}
+                        0x1fff0000          --   Gb  command line/config [2]
+__VECTOR_TABLE_ROM_START {Abs}
+                        0x00000000          --   Gb  command line/config [2]
+__aeabi_cdcmpeq         0x0000910d         Code  Gb  DblCmpEq.o [7]
+__aeabi_cdcmple         0x0000967d         Code  Gb  DblCmpLe.o [7]
+__aeabi_cdrcmple        0x0000964d         Code  Gb  DblCmpGe.o [7]
+__aeabi_d2iz            0x00009601         Code  Gb  DblToI32.o [7]
+__aeabi_dadd            0x00009375         Code  Gb  DblAdd.o [7]
+__aeabi_ddiv            0x0000912d         Code  Gb  DblDiv.o [7]
+__aeabi_dmul            0x0000945d         Code  Gb  DblMul.o [7]
+__aeabi_ldiv0           0x00007a1d         Code  Gb  I64DivZer.o [10]
+__aeabi_ldivmod         0x000075e1         Code  Gb  I64DivMod.o [10]
+__aeabi_llsl            0x00011289         Code  Gb  I64Shl.o [10]
+__aeabi_memclr          0x000019d5         Code  Gb  ABImemclr.o [10]
+__aeabi_memclr4         0x000052dd         Code  Gb  ABImemclr4.o [10]
+__aeabi_memcpy          0x00002175         Code  Gb  ABImemcpy.o [10]
+__aeabi_memcpy4         0x00002195         Code  Gb  ABImemcpy.o [10]
+__aeabi_memcpy8         0x00002195         Code  Gb  ABImemcpy.o [10]
+__aeabi_memset          0x000027c1         Code  Gb  ABImemset.o [10]
+__aeabi_memset4         0x000028cd         Code  Gb  ABImemset48.o [10]
+__aeabi_memset8         0x000028cd         Code  Gb  ABImemset48.o [10]
+__aeabi_uldivmod        0x00007625         Code  Gb  I64DivMod.o [10]
+__aeabi_vec_delete      0x000178ed    0x8  Code  Gb  cxxabi.o [5]
+__aeabi_vec_dtor        0x000178b5   0x24  Code  Gb  cxxabi.o [5]
+__aeabi_vec_dtor_cookie
+                        0x000178d9   0x14  Code  Gb  cxxabi.o [5]
+__aeabi_vec_new_cookie  0x00017887   0x2e  Code  Gb  cxxabi.o [5]
+__aeabi_vec_new_cookie_noctor
+                        0x0001786d   0x1a  Code  Gb  cxxabi.o [5]
+__boot                  0x00000451          --   Gb  boot.o [9]
+__cmain                 0x000004dd         Code  Gb  cmain.o [10]
+__cxa_pure_virtual      0x0002029f    0x4  Code  Gb  xpurevirtual.o [4]
+__cxa_vec_ctor          0x000178fd   0x22  Code  Gb  cxxabi.o [5]
+__exit                  0x0000269d         Code  Gb  XXexit.o [10]
+__get_MSP               0x000205e1          --   Gb  dispatch.o [9]
+__get_PSP               0x000205db          --   Gb  dispatch.o [9]
+__get_PSR               0x000205ed          --   Gb  dispatch.o [9]
+__iar_Memset            0x000027c1         Code  Gb  ABImemset.o [10]
+__iar_Memset4_word      0x000028d5         Code  Gb  ABImemset48.o [10]
+__iar_Memset8_word      0x000028d5         Code  Gb  ABImemset48.o [10]
+__iar_Memset_word       0x000027c9         Code  Gb  ABImemset.o [10]
+__iar_d2uiz             0x0000962d         Code  Gb  DblToI32.o [7]
+__iar_dadd              0x00009389         Code  Gb  DblAdd.o [7]
+__iar_data_init3        0x00000505   0x28  Code  Gb  data_init3.o [10]
+__iar_dsub              0x000096ad         Code  Gb  DblSub.o [7]
+__iar_dsubStart         0x000096bf         Code  Gb  DblSub.o [7]
+__iar_init_vfp          0x000004c1         Code  Gb  fpinit_M.o [7]
+__iar_modf              0x00009065         Code  Gb  modf.o [7]
+__iar_modfl             0x00009065         Code  Gb  modf.o [7]
+__iar_packbits_init3    0x000202a3   0xa6  Code  Gb  packbits_init3.o [10]
+__iar_program_start     0x000004b5         Code  Gb  cstartup_M.o [10]
+__iar_strcmp            0x000073cd         Code  Gb  strcmp.o [10]
+__iar_vfp_modf          0x0000904d         Code  Gb  modf.o [7]
+__iar_vfp_modfl         0x0000904d         Code  Gb  modf.o [7]
+__iar_zero_init3        0x000019db   0x22  Code  Gb  zero_init3.o [10]
+__low_level_init        0x000004f3    0xa  Code  Gb  comp.o [9]
+__pe_initialize_hardware
+                        0x00001079  0x116  Code  Gb  bsp_cm.o [3]
+__set_MSP               0x0000049b          --   Gb  boot.o [9]
+__vector_table          0x00000000  0x400  Data  Gb  vectors.o [3]
+_adc_close              0x00004599   0xb0  Code  Gb  adc.o [3]
+_adc_hw_channel_deinit  0x0000698f   0x46  Code  Gb  adc_kadc.o [3]
+_adc_hw_channel_init    0x000068ab   0xe4  Code  Gb  adc_kadc.o [3]
+_adc_hw_deinit          0x00006895   0x16  Code  Gb  adc_kadc.o [3]
+_adc_hw_init            0x000066f9  0x19c  Code  Gb  adc_kadc.o [3]
+_adc_hw_ioctl           0x000063d5  0x324  Code  Gb  adc_kadc.o [3]
+_adc_ioctl              0x000046a1   0xba  Code  Gb  adc.o [3]
+_adc_open               0x0000435d  0x23a  Code  Gb  adc.o [3]
+_adc_read               0x00004649   0x54  Code  Gb  adc.o [3]
+_adc_write              0x0000469d    0x4  Code  Gb  adc.o [3]
+_adt_hw_channel_deinit  0x00007099   0x8c  Code  Gb  adt_kpdb.o [3]
+_adt_hw_channel_init    0x00006f97  0x102  Code  Gb  adt_kpdb.o [3]
+_adt_hw_deinit          0x00006e09    0xe  Code  Gb  adt_kpdb.o [3]
+_adt_hw_init            0x00006d59   0xb0  Code  Gb  adt_kpdb.o [3]
+_adt_hw_ioctl           0x00006c25  0x134  Code  Gb  adt_kpdb.o [3]
+_adt_pause              0x000071b9   0x6e  Code  Gb  adt_kpdb.o [3]
+_adt_process_data       0x00007313   0x6a  Code  Gb  adt_kpdb.o [3]
+_adt_resume             0x00007227   0x84  Code  Gb  adt_kpdb.o [3]
+_adt_stop               0x000072ab   0x68  Code  Gb  adt_kpdb.o [3]
+_adt_trigger            0x00007125   0x94  Code  Gb  adt_kpdb.o [3]
+_bsp_adc1_init          0x00020af8   0x18  Data  Gb  init_adc.o [3]
+_bsp_adc_channel_io_init
+                        0x00001515   0xf2  Code  Gb  init_gpio.o [3]
+_bsp_adc_io_init        0x000014c9   0x44  Code  Gb  init_gpio.o [3]
+_bsp_audio_data_init    0x1fff015c    0x8  Data  Gb  init_sai.o [3]
+_bsp_edma_enable        0x00005681   0x1e  Code  Gb  edma_kinetisf.o [3]
+_bsp_enable_card        0x000024c5  0x150  Code  Gb  init_bsp.o [3]
+_bsp_esdhc0_init        0x00020b10    0xc  Data  Gb  init_esdhc.o [3]
+_bsp_esdhc_io_init      0x00001613   0x26  Code  Gb  init_gpio.o [3]
+_bsp_get_adc_base_address
+                        0x0000790d   0x12  Code  Gb  adc_mk60.o [3]
+_bsp_get_clock          0x0000127d   0x1e  Code  Gb  bsp_cm.o [3]
+_bsp_get_clock_configuration
+                        0x0000121d    0x2  Code  Gb  bsp_cm.o [3]
+_bsp_get_edma_done_vectors
+                        0x00005661   0x10  Code  Gb  edma_kinetisf.o [3]
+_bsp_get_edma_error_vectors
+                        0x00005671   0x10  Code  Gb  edma_kinetisf.o [3]
+_bsp_get_esdhc_base_address
+                        0x00007545    0xa  Code  Gb  esdhc_mk60.o [3]
+_bsp_get_hwticks        0x00002619   0x12  Code  Gb  init_bsp.o [3]
+_bsp_get_i2c_base_address
+                        0x00006255   0x14  Code  Gb  i2c_mk60.o [3]
+_bsp_get_i2c_vector     0x00006271   0x14  Code  Gb  i2c_mk60.o [3]
+_bsp_get_nfc_address    0x0001ccbd    0x4  Code  Gb  nfc_k60f120m.o [3]
+_bsp_get_sai_base_address
+                        0x0001f3a9   0x14  Code  Gb  sai_mk60.o [3]
+_bsp_get_sai_rx_vector  0x0001f3d9   0x14  Code  Gb  sai_mk60.o [3]
+_bsp_get_sai_tx_vector  0x0001f3c5   0x14  Code  Gb  sai_mk60.o [3]
+_bsp_get_serial_base_address
+                        0x000078c9   0x44  Code  Gb  serl_mk60.o [3]
+_bsp_gpio_io_init       0x0000166b    0xa  Code  Gb  init_gpio.o [3]
+_bsp_i2c0_init          0x00020b1c   0x14  Data  Gb  init_i2c.o [3]
+_bsp_i2c_io_init        0x00001639   0x32  Code  Gb  init_gpio.o [3]
+_bsp_initialize_hardware
+                        0x000012b1    0x2  Code  Gb  bsp_cm.o [3]
+_bsp_ksai_init          0x1fff0164   0x1c  Data  Gb  init_sai.o [3]
+_bsp_low_level_init     0x000012af    0x2  Code  Gb  bsp_cm.o [3]
+_bsp_nandflash_init     0x00020780   0x48  Data  Gb  init_nandflash.o [3]
+_bsp_nandflash_io_init  0x0000168f   0x4c  Code  Gb  init_gpio.o [3]
+_bsp_nandflash_wl_init  0x00020728   0x18  Data  Gb  nandflash_wl_init.o [6]
+_bsp_osc_autotrim       0x0000129b   0x14  Code  Gb  bsp_cm.o [3]
+_bsp_pdb_init           0x00020ae8   0x10  Data  Gb  init_adc.o [3]
+_bsp_rtc_io_init        0x00001607    0xc  Code  Gb  init_gpio.o [3]
+_bsp_sai_init           0x00020b38   0x1c  Data  Gb  init_sai.o [3]
+_bsp_sai_io_init        0x000016e7   0x3c  Code  Gb  init_gpio.o [3]
+_bsp_sci5_init          0x00020b54   0x20  Data  Gb  init_sci.o [3]
+_bsp_serial_io_init     0x00001349  0x180  Code  Gb  init_gpio.o [3]
+_bsp_serial_rts_init    0x00001675   0x1a  Code  Gb  init_gpio.o [3]
+_bsp_set_clock_configuration
+                        0x00001205   0x18  Code  Gb  bsp_cm.o [3]
+_bsp_systimer_callback  0x00002615    0x4  Code  Gb  init_bsp.o [3]
+_bsp_watchdog_disable   0x00000541   0x1a  Code  Gb  init_hw.o [3]
+_call_main              0x000004e9         Code  Gb  cmain.o [10]
+_cfm                    0x00000400   0x10  Data  Gb  vectors.o [3]
+_date_to_sec            0x00003197   0xd4  Code  Lc  krtc.o [3]
+_dcache_enable          0x00003349    0x6  Code  Gb  cache.o [9]
+_ecc_mode_threshold     0x1fff005c    0x8  Data  Lc  nfc_wl.o [6]
+_esdhc_close            0x00004a55   0x5a  Code  Gb  esdhc.o [3]
+_esdhc_init             0x000047e1   0x8e  Code  Lc  esdhc.o [3]
+_esdhc_install          0x00004945   0x72  Code  Gb  esdhc.o [3]
+_esdhc_ioctl            0x00004ac5  0x464  Code  Gb  esdhc.o [3]
+_esdhc_open             0x000049e5   0x6a  Code  Gb  esdhc.o [3]
+_esdhc_read             0x00004f31   0xce  Code  Gb  esdhc.o [3]
+_esdhc_send_command     0x0000486f   0xd6  Code  Lc  esdhc.o [3]
+_esdhc_set_baudrate     0x0000475d   0x84  Code  Lc  esdhc.o [3]
+_esdhc_uninstall        0x000049b9   0x2a  Code  Gb  esdhc.o [3]
+_esdhc_write            0x00005001   0xd0  Code  Gb  esdhc.o [3]
+_exit                   0x00000cbd         Code  Gb  cexit.o [10]
+_icache_enable          0x0000334f    0x6  Code  Gb  cache.o [9]
+_int_default_isr        0x00001801   0x30  Code  Gb  int.o [9]
+_int_disable            0x00001831   0x1a  Code  Gb  int.o [9]
+_int_enable             0x0000184b   0x22  Code  Gb  int.o [9]
+_int_get_default_isr    0x0000186d    0x8  Code  Gb  int.o [9]
+_int_get_isr_data       0x00001875   0x54  Code  Gb  int.o [9]
+_int_init               0x00001955   0x72  Code  Gb  int.o [9]
+_int_install_isr        0x000018c9   0x8c  Code  Gb  int.o [9]
+_int_kernel_isr         0x000204c3          --   Gb  dispatch.o [9]
+_int_set_vector_table   0x00002e7d    0xa  Code  Gb  int_vtab.o [9]
+_io_adc_install         0x000042f1   0x6a  Code  Gb  adc.o [3]
+_io_cvt                 0x000089b5  0x248  Code  Gb  io_fp.o [9]
+_io_dev_install         0x000063b7   0x1c  Code  Gb  io_inst.o [9]
+_io_dev_install_ext     0x00007449   0xfc  Code  Gb  io_instx.o [9]
+_io_dev_uninstall       0x0000b889   0x78  Code  Gb  io_uinst.o [9]
+_io_doprint             0x00007e8d  0x918  Code  Gb  io_dopr.o [9]
+_io_doprint_prt         0x000087bf   0xd2  Code  Gb  io_dopr.o [9]
+_io_doprint_prt64       0x00008891   0xfa  Code  Gb  io_dopr.o [9]
+_io_dtoa                0x00008c7b   0x38  Code  Gb  io_fp.o [9]
+_io_dtoe                0x00008cb3   0xb4  Code  Gb  io_fp.o [9]
+_io_dtof                0x00008d67   0xe0  Code  Gb  io_fp.o [9]
+_io_dtog                0x00008e4d  0x1fe  Code  Gb  io_fp.o [9]
+_io_fclose              0x0000a1b5   0x28  Code  Gb  io_fclos.o [9]
+_io_ferror              0x0000b87d    0xc  Code  Gb  io_ferr.o [9]
+_io_fflush              0x00010ac1   0x32  Code  Gb  io_fflsh.o [9]
+_io_fgetc               0x0001549d   0x36  Code  Gb  io_fgetc.o [9]
+_io_fgetline            0x00012e19   0x76  Code  Gb  io_fgetl.o [9]
+_io_fgets               0x00010af3   0x28  Code  Gb  io_fgets.o [9]
+_io_fopen               0x00007555   0x8c  Code  Gb  io_fopen.o [9]
+_io_fputc               0x00019691   0x30  Code  Gb  io_fputc.o [9]
+_io_fseek               0x0000ced7   0x70  Code  Gb  io_fseek.o [9]
+_io_fungetc             0x000154d3   0x22  Code  Gb  io_fung.o [9]
+_io_get_dev_for_path    0x0000ca79   0x76  Code  Gb  io_util.o [9]
+_io_get_first_valid_fs  0x0000c945   0x30  Code  Gb  io_util.o [9]
+_io_get_fs_by_name      0x0000c905   0x40  Code  Gb  io_util.o [9]
+_io_get_fs_name         0x0000c997   0x56  Code  Gb  io_util.o [9]
+_io_get_handle          0x00007ddd   0x44  Code  Gb  io_ghand.o [9]
+_io_i2c_int_close       0x0000634d   0x34  Code  Gb  i2c_int.o [3]
+_io_i2c_int_install     0x00006285   0x68  Code  Gb  i2c_int.o [3]
+_io_i2c_int_ioctl       0x00006391   0x26  Code  Gb  i2c_int.o [3]
+_io_i2c_int_open        0x00006315   0x38  Code  Gb  i2c_int.o [3]
+_io_i2c_int_read        0x00006381    0x8  Code  Gb  i2c_int.o [3]
+_io_i2c_int_uninstall   0x000062ed   0x28  Code  Gb  i2c_int.o [3]
+_io_i2c_int_write       0x00006389    0x8  Code  Gb  i2c_int.o [3]
+_io_i2c_polled_close    0x000061f1   0x2a  Code  Gb  i2c_pol.o [3]
+_io_i2c_polled_install  0x00006125   0x68  Code  Gb  i2c_pol.o [3]
+_io_i2c_polled_ioctl    0x0000622d   0x26  Code  Gb  i2c_pol.o [3]
+_io_i2c_polled_open     0x000061b5   0x3c  Code  Gb  i2c_pol.o [3]
+_io_i2c_polled_read     0x0000621d    0x8  Code  Gb  i2c_pol.o [3]
+_io_i2c_polled_uninstall
+                        0x0000618d   0x28  Code  Gb  i2c_pol.o [3]
+_io_i2c_polled_write    0x00006225    0x8  Code  Gb  i2c_pol.o [3]
+_io_inf_or_nan          0x00008c15   0x66  Code  Lc  io_fp.o [9]
+_io_init                0x00003009   0x24  Code  Gb  io_init.o [9]
+_io_ioctl               0x0000a17d   0x38  Code  Gb  io_ioctl.o [9]
+_io_is_fs_valid         0x0000c975   0x22  Code  Gb  io_util.o [9]
+_io_mfs_close           0x0000a465   0x20  Code  Gb  mfs_init.o [8]
+_io_mfs_dir_close       0x0001a821   0x12  Code  Gb  dir_read.o [8]
+_io_mfs_dir_open        0x0001a555   0xd2  Code  Gb  dir_read.o [8]
+_io_mfs_dir_read        0x0001a627  0x1f4  Code  Gb  dir_read.o [8]
+_io_mfs_install         0x0000a1dd   0x98  Code  Gb  mfs_init.o [8]
+_io_mfs_ioctl           0x0000a4dd  0x64c  Code  Gb  mfs_init.o [8]
+_io_mfs_open            0x0000a2a5  0x1c0  Code  Gb  mfs_init.o [8]
+_io_mfs_read            0x0000a485   0x30  Code  Gb  mfs_init.o [8]
+_io_mfs_uninstall_internal
+                        0x0000a279   0x2c  Code  Lc  mfs_init.o [8]
+_io_mfs_write           0x0000a4b5   0x28  Code  Gb  mfs_init.o [8]
+_io_mputc               0x00007e21   0x32  Code  Lc  io_dopr.o [9]
+_io_nandflash_wl_close  0x0000baa9   0x2c  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_install
+                        0x0000b901   0xb8  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_internal_read_metadata
+                        0x0000bfc7   0x88  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_internal_read_raw
+                        0x0000bb31   0x78  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_internal_read_with_metadata
+                        0x0000bf37   0x82  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_internal_write_raw
+                        0x0000bc07   0x84  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_internal_write_with_metadata
+                        0x0000bc91   0x86  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_ioctl  0x0000bd19  0x218  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_open   0x0000b9dd   0xca  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_read   0x0000bad9   0x58  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_uninstall
+                        0x0000b9c1   0x1a  Code  Gb  nandflash_wl.o [6]
+_io_nandflash_wl_write  0x0000bba9   0x58  Code  Gb  nandflash_wl.o [6]
+_io_printf              0x00007db5   0x28  Code  Gb  io_pntf.o [9]
+_io_putstr              0x00007e53   0x3a  Code  Lc  io_dopr.o [9]
+_io_read                0x00011747   0x50  Code  Gb  io_read.o [9]
+_io_register_file_system
+                        0x0000c9ed   0x48  Code  Gb  io_util.o [9]
+_io_rel2abs             0x0000caef  0x102  Code  Gb  io_util.o [9]
+_io_sai_int_close       0x000051f9   0x42  Code  Gb  sai_int.o [3]
+_io_sai_int_install     0x000050d9   0x60  Code  Gb  sai_int.o [3]
+_io_sai_int_ioctl       0x00005289   0x24  Code  Gb  sai_int.o [3]
+_io_sai_int_open        0x00005171   0x82  Code  Gb  sai_int.o [3]
+_io_sai_int_read        0x0000523d   0x1e  Code  Gb  sai_int.o [3]
+_io_sai_int_uninstall   0x00005139   0x38  Code  Gb  sai_int.o [3]
+_io_sai_int_write       0x0000525d   0x1c  Code  Gb  sai_int.o [3]
+_io_serial_default_init
+                        0x000052ad   0x30  Code  Gb  io_sinit.o [3]
+_io_serial_int_addc     0x00005bdd   0xc2  Code  Gb  serl_int.o [3]
+_io_serial_int_close    0x00005901   0x72  Code  Gb  serl_int.o [3]
+_io_serial_int_install  0x00005771   0x68  Code  Gb  serl_int.o [3]
+_io_serial_int_ioctl    0x00005ac5   0x9e  Code  Gb  serl_int.o [3]
+_io_serial_int_nextc    0x00005c9f   0x66  Code  Gb  serl_int.o [3]
+_io_serial_int_open     0x000057d9  0x126  Code  Gb  serl_int.o [3]
+_io_serial_int_putc_internal
+                        0x00005b63   0x7a  Code  Gb  serl_int.o [3]
+_io_serial_int_read     0x00005975  0x10a  Code  Gb  serl_int.o [3]
+_io_serial_int_write    0x00005a81   0x44  Code  Gb  serl_int.o [3]
+_io_snprintf            0x00011253   0x28  Code  Gb  io_spr.o [9]
+_io_sprintf             0x0001122d   0x26  Code  Gb  io_spr.o [9]
+_io_sputc               0x0001127d    0xa  Code  Gb  io_spr.o [9]
+_io_strtolower          0x0000c8e5   0x20  Code  Gb  io_util.o [9]
+_io_unregister_file_system
+                        0x0000ca35   0x3e  Code  Gb  io_util.o [9]
+_io_write               0x000116c7   0x1e  Code  Gb  io_write.o [9]
+_ki2c_int_deinit        0x00003e61   0x52  Code  Gb  i2c_int_ki2c.o [3]
+_ki2c_int_init          0x00003dcd   0x92  Code  Gb  i2c_int_ki2c.o [3]
+_ki2c_int_install       0x00003da5   0x24  Code  Gb  i2c_int_ki2c.o [3]
+_ki2c_int_rx            0x00003eb5   0xd6  Code  Gb  i2c_int_ki2c.o [3]
+_ki2c_int_tx            0x00003f8d   0xbc  Code  Gb  i2c_int_ki2c.o [3]
+_ki2c_isr               0x00004055  0x29c  Code  Lc  i2c_int_ki2c.o [3]
+_ki2c_polled_deinit     0x00003651   0x34  Code  Gb  i2c_pol_ki2c.o [3]
+_ki2c_polled_init       0x00003565   0xea  Code  Gb  i2c_pol_ki2c.o [3]
+_ki2c_polled_install    0x0000353d   0x26  Code  Gb  i2c_pol_ki2c.o [3]
+_ki2c_polled_ioctl      0x00003685  0x2b0  Code  Gb  i2c_pol_ki2c.o [3]
+_ki2c_polled_rx         0x0000393d   0x64  Code  Gb  i2c_pol_ki2c.o [3]
+_ki2c_polled_rx_tx      0x00003a0b  0x28c  Code  Lc  i2c_pol_ki2c.o [3]
+_ki2c_polled_tx         0x000039a1   0x60  Code  Gb  i2c_pol_ki2c.o [3]
+_ki2s_find_mclk_freq_div
+                        0x0001efb7   0x64  Code  Lc  sai_int_ksai.o [3]
+_ki2s_set_bclk_mode     0x0001f2f5   0xb2  Code  Lc  sai_int_ksai.o [3]
+_ki2s_set_master_mode   0x0001f01b  0x198  Code  Lc  sai_int_ksai.o [3]
+_ki2s_set_slave_mode    0x0001f1b3  0x142  Code  Lc  sai_int_ksai.o [3]
+_kinetis_mpu_disable    0x00002e8d    0xa  Code  Gb  kinetis_mpu.o [9]
+_ksai_format_in_data    0x0001ef29   0x8e  Code  Lc  sai_int_ksai.o [3]
+_ksai_hw_init           0x0001ecc7  0x25a  Code  Lc  sai_int_ksai.o [3]
+_ksai_int_deinit        0x0001e077  0x108  Code  Gb  sai_int_ksai.o [3]
+_ksai_int_init          0x0001dd61  0x310  Code  Gb  sai_int_ksai.o [3]
+_ksai_int_ioctl         0x0001e65d  0x66a  Code  Gb  sai_int_ksai.o [3]
+_ksai_int_rx            0x0001e283  0x132  Code  Gb  sai_int_ksai.o [3]
+_ksai_int_tx            0x0001e17f  0x104  Code  Gb  sai_int_ksai.o [3]
+_ksai_rx_irq_handler    0x0001e525   0xfe  Code  Lc  sai_int_ksai.o [3]
+_ksai_rx_tx_irq_handler
+                        0x0001e625   0x38  Code  Lc  sai_int_ksai.o [3]
+_ksai_tx_irq_handler    0x0001e3cd  0x158  Code  Lc  sai_int_ksai.o [3]
+_kuart_change_baudrate  0x00005d05   0x5a  Code  Gb  serl_pol_kuart.o [3]
+_kuart_int_deinit       0x000033f9   0x18  Code  Gb  serl_int_kuart.o [3]
+_kuart_int_enable       0x00003411   0x1a  Code  Gb  serl_int_kuart.o [3]
+_kuart_int_err_isr      0x0000342d   0x54  Code  Gb  serl_int_kuart.o [3]
+_kuart_int_init         0x0000339d   0x5a  Code  Gb  serl_int_kuart.o [3]
+_kuart_int_install      0x00003371   0x26  Code  Gb  serl_int_kuart.o [3]
+_kuart_int_putc         0x00003521   0x1c  Code  Gb  serl_int_kuart.o [3]
+_kuart_int_rx_tx_isr    0x00003481   0xa0  Code  Gb  serl_int_kuart.o [3]
+_kuart_polled_deinit    0x00005e19   0x1e  Code  Gb  serl_pol_kuart.o [3]
+_kuart_polled_init      0x00005d61   0xb6  Code  Gb  serl_pol_kuart.o [3]
+_kuart_polled_ioctl     0x00005e39  0x2ea  Code  Gb  serl_pol_kuart.o [3]
+_lwevent_set            0x00007931   0xb6  Code  Gb  lwevent.o [9]
+_lwmem_alloc            0x000007a5    0x8  Code  Gb  lwmem.o [9]
+_lwmem_alloc_at         0x000007ad   0x18  Code  Gb  lwmem.o [9]
+_lwmem_alloc_at_internal
+                        0x000006d1   0xd4  Code  Gb  lwmem.o [9]
+_lwmem_alloc_from       0x000007d1    0xe  Code  Gb  lwmem.o [9]
+_lwmem_alloc_internal   0x000005fd   0xca  Code  Gb  lwmem.o [9]
+_lwmem_alloc_system     0x0000097b    0x6  Code  Gb  lwmem.o [9]
+_lwmem_alloc_system_from
+                        0x0000096f    0xc  Code  Gb  lwmem.o [9]
+_lwmem_alloc_system_zero
+                        0x00000a2d    0xa  Code  Gb  lwmem.o [9]
+_lwmem_alloc_system_zero_from
+                        0x00000a17    0xc  Code  Gb  lwmem.o [9]
+_lwmem_alloc_zero       0x000007df    0x6  Code  Gb  lwmem.o [9]
+_lwmem_alloc_zero_from  0x000007ef    0xe  Code  Gb  lwmem.o [9]
+_lwmem_create_pool      0x000007fd   0x5e  Code  Gb  lwmem.o [9]
+_lwmem_create_pool_mapped
+                        0x0000085b   0x24  Code  Gb  lwmem.o [9]
+_lwmem_free             0x0000087f   0xf0  Code  Gb  lwmem.o [9]
+_lwmem_get_next_block_internal
+                        0x000009a1   0x64  Code  Gb  lwmem.o [9]
+_lwmem_get_system_pool_id
+                        0x000007c5    0xc  Code  Gb  lwmem.o [9]
+_lwmem_init_internal    0x00000981   0x20  Code  Gb  lwmem.o [9]
+_lwmem_set_type         0x00000a05    0xa  Code  Gb  lwmem.o [9]
+_lwmem_transfer_internal
+                        0x00000a0f    0x8  Code  Gb  lwmem.o [9]
+_lwsem_create           0x000022db    0x6  Code  Gb  lwsem.o [9]
+_lwsem_create_internal  0x00002291   0x4a  Code  Gb  lwsem.o [9]
+_lwsem_destroy          0x00002367    0x4  Code  Gb  lwsem.o [9]
+_lwsem_destroy_internal
+                        0x000022e1   0x86  Code  Gb  lwsem.o [9]
+_lwsem_post             0x0000236b   0x68  Code  Gb  lwsem.o [9]
+_lwsem_wait             0x000023d3   0x5c  Code  Gb  lwsem.o [9]
+_lwsem_wait_timed_internal
+                        0x00002437   0x30  Code  Gb  lwsem.o [9]
+_lwsem_wait_until       0x00002467   0x54  Code  Gb  lwsem.o [9]
+_main                   0x000004ef         Code  Gb  cmain.o [10]
+_mem_test_and_set       0x000205c1          --   Gb  dispatch.o [9]
+_mfs_validate_device    0x00010391   0x7e  Code  Gb  mfs_valdev.o [8]
+_mqx                    0x00000a41  0x15c  Code  Gb  mqx.o [9]
+_mqx_api_call           0x00020379          --   Gb  dispatch.o [9]
+_mqx_idle_task          0x0001d42d   0x44  Code  Gb  idletask.o [9]
+_mqx_init_kernel_data_internal
+                        0x00000bdb   0xbc  Code  Gb  mqx.o [9]
+_mqx_kernel_data        0x1fff0070    0x4  Data  Gb  mqx.o [9]
+_mqx_set_cpu_type       0x00000b9d    0x8  Code  Gb  mqx.o [9]
+_mqx_set_io_component_handle
+                        0x00000ba5   0x36  Code  Gb  mqx.o [9]
+_mqx_system_stack       0x1fff0074    0x4  Data  Gb  mqx.o [9]
+_mqx_vendor             0x00000cb8    0x4  Data  Gb  mqx.o [9]
+_mqx_version_number     0x00000cb4    0x4  Data  Gb  mqx.o [9]
+_mqx_zero_tick_struct   0x000207e0    0xc  Data  Gb  mqx.o [9]
+_mutatr_init            0x00011a71   0x18  Code  Gb  mutex.o [9]
+_mutex_cleanup          0x00011d1d   0x42  Code  Gb  mutex.o [9]
+_mutex_create_component
+                        0x00011a89   0x5a  Code  Gb  mutex.o [9]
+_mutex_destroy          0x00011ae3   0x90  Code  Gb  mutex.o [9]
+_mutex_init             0x00011b73   0x90  Code  Gb  mutex.o [9]
+_mutex_lock             0x00011c09  0x104  Code  Gb  mutex.o [9]
+_mutex_unlock           0x00011d5f   0x8e  Code  Gb  mutex.o [9]
+_nvic_int_disable       0x00005745   0x10  Code  Gb  nvic.o [9]
+_nvic_int_enable        0x00005735   0x10  Code  Gb  nvic.o [9]
+_nvic_int_init          0x000056e9   0x4c  Code  Gb  nvic.o [9]
+_opened_fs_table        0x1fff0770   0x30  Data  Lc  io_util.o [9]
+_partition_alloc_internal
+                        0x0000c511   0xc6  Code  Gb  partition.o [9]
+_partition_alloc_system_zero
+                        0x0000c821   0x1c  Code  Gb  partition.o [9]
+_partition_cleanup      0x0000c841   0x7a  Code  Gb  partition.o [9]
+_partition_create       0x0000c6a3   0x66  Code  Gb  partition.o [9]
+_partition_create_component
+                        0x0000c5d7   0x5e  Code  Gb  partition.o [9]
+_partition_create_internal
+                        0x0000c635   0x6e  Code  Gb  partition.o [9]
+_partition_destroy      0x0000c709   0x70  Code  Gb  partition.o [9]
+_partition_extend_internal
+                        0x0000c779   0x50  Code  Gb  partition.o [9]
+_partition_free         0x0000c7c9   0x58  Code  Gb  partition.o [9]
+_pend_svc               0x000203f5          --   Gb  dispatch.o [9]
+_psp_add_element_to_array
+                        0x00019057   0x32  Code  Gb  psp_mat3.o [9]
+_psp_add_ticks          0x00005341   0x44  Code  Gb  psp_tiad.o [9]
+_psp_build_float_context
+                        0x00002899   0x32  Code  Gb  stack_bu.o [9]
+_psp_build_stack_frame  0x00002829   0x6a  Code  Gb  stack_bu.o [9]
+_psp_div_128_by_32      0x00019089   0x94  Code  Gb  psp_mat2.o [9]
+_psp_exception_return   0x00020555          --   Gb  dispatch.o [9]
+_psp_init_readyqs       0x00002229   0x5c  Code  Gb  sc_irdyq.o [9]
+_psp_int_init           0x00002e69   0x12  Code  Gb  psp_iinit.o [9]
+_psp_int_install        0x00005651   0x10  Code  Gb  int_inst.o [9]
+_psp_msecs_to_ticks     0x000052e5   0x5c  Code  Gb  psp_msti.o [9]
+_psp_msecs_to_ticks_quick
+                        0x00005491   0x68  Code  Gb  psp_mstiq.o [9]
+_psp_mul_128_by_32      0x00018fb9   0x98  Code  Gb  psp_mat1.o [9]
+_psp_normalize_ticks    0x000055f9   0x30  Code  Gb  psp_tinm.o [9]
+_psp_pop_fp_context     0x00000435          --   Gb  support.o [9]
+_psp_push_fp_context    0x00000421          --   Gb  support.o [9]
+_psp_save_fp_context_internal
+                        0x0002058d          --   Gb  dispatch.o [9]
+_psp_seconds_to_ticks   0x00007715   0x1c  Code  Gb  psp_seti.o [9]
+_psp_set_kernel_disable_level
+                        0x000021ed   0x3c  Code  Gb  sc_irdyq.o [9]
+_psp_subtract_ticks     0x000054f9   0x36  Code  Gb  psp_tisu.o [9]
+_psp_ticks_to_microseconds
+                        0x00018ee9   0x76  Code  Gb  psp_tius.o [9]
+_psp_ticks_to_seconds   0x00005535   0x48  Code  Gb  psp_tise.o [9]
+_psp_ticks_to_time      0x0000557d   0x7c  Code  Gb  psp_tkti.o [9]
+_psp_time_to_ticks      0x00005629   0x26  Code  Gb  psp_tiol.o [9]
+_queue_dequeue          0x00002069   0x24  Code  Gb  queue.o [9]
+_queue_enqueue          0x00002037   0x32  Code  Gb  queue.o [9]
+_queue_head             0x00002095   0x1e  Code  Gb  queue.o [9]
+_queue_init             0x0000202b    0xc  Code  Gb  queue.o [9]
+_queue_insert           0x000020b3   0x34  Code  Gb  queue.o [9]
+_queue_is_empty         0x00002169    0xa  Code  Gb  queue.o [9]
+_queue_next             0x000020e7   0x20  Code  Gb  queue.o [9]
+_queue_test             0x00002107   0x3a  Code  Gb  queue.o [9]
+_queue_unlink           0x00002149   0x20  Code  Gb  queue.o [9]
+_rtc_init               0x0000303d   0xc0  Code  Gb  krtc.o [3]
+_rtc_isr                0x000030fd   0x9a  Code  Gb  krtc.o [3]
+_rtc_set_time           0x0000326b   0x18  Code  Gb  krtc.o [3]
+_rtc_sync_with_mqx      0x000032d7   0x48  Code  Gb  krtc.o [3]
+_rtc_time_to_mqx_date   0x000032c9    0xe  Code  Gb  krtc.o [3]
+_rtc_update_TAR         0x00003283   0x3c  Code  Lc  krtc.o [3]
+_rtc_wait_ms            0x0000302d   0x10  Code  Lc  krtc.o [3]
+_sched_boost_priority_internal
+                        0x000053ab   0x12  Code  Gb  sched.o [9]
+_sched_check_scheduler_internal
+                        0x00020359          --   Gb  dispatch.o [9]
+_sched_execute_scheduler_internal
+                        0x00020375          --   Gb  dispatch.o [9]
+_sched_get_max_priority_on_q_internal
+                        0x00005417   0x1e  Code  Gb  sched.o [9]
+_sched_insert_priorityq_internal
+                        0x000053ed   0x2a  Code  Gb  sched.o [9]
+_sched_run_internal     0x00020355          --   Gb  dispatch.o [9]
+_sched_set_priority_internal
+                        0x00005435   0x56  Code  Gb  sched.o [9]
+_sched_start_internal   0x00020351          --   Gb  dispatch.o [9]
+_sched_unboost_priority_internal
+                        0x000053bd   0x24  Code  Gb  sched.o [9]
+_sched_yield            0x00005385   0x26  Code  Gb  sched.o [9]
+_strnlen                0x000116ad   0x1a  Code  Gb  strnlen.o [9]
+_svc_handler            0x0002037f          --   Gb  dispatch.o [9]
+_task_alloc_td_internal
+                        0x00001f6d   0xa8  Code  Gb  task.o [9]
+_task_block             0x0002037b          --   Gb  dispatch.o [9]
+_task_build_internal    0x00001d51   0x6c  Code  Gb  task.o [9]
+_task_create            0x00001a5b    0x4  Code  Gb  task.o [9]
+_task_create_blocked    0x00001a5f   0x48  Code  Gb  task.o [9]
+_task_create_internal   0x000019fd   0x5e  Code  Gb  task.o [9]
+_task_destroy           0x00001c7d    0x4  Code  Gb  task.o [9]
+_task_destroy_internal  0x00001aa7  0x1d6  Code  Gb  task.o [9]
+_task_exit_function_internal
+                        0x00001dbd   0x1e  Code  Gb  task.o [9]
+_task_fill_stack_internal
+                        0x00001f37   0x12  Code  Gb  task.o [9]
+_task_get_error         0x00001cc3   0x16  Code  Gb  task.o [9]
+_task_get_td            0x00001cd9   0x4e  Code  Gb  task.o [9]
+_task_init_internal     0x00001ddb  0x156  Code  Gb  task.o [9]
+_task_ready             0x00001c81   0x42  Code  Gb  task.o [9]
+_task_ready_internal    0x00001f49   0x22  Code  Gb  task.o [9]
+_task_set_error         0x00001d27   0x2a  Code  Gb  task.o [9]
+_task_set_error_td_internal
+                        0x0000201d    0xe  Code  Gb  task.o [9]
+_task_sync_priority_internal
+                        0x00001f6b    0x2  Code  Gb  task.o [9]
+_taskq_create           0x00007731   0x6c  Code  Gb  taskq.o [9]
+_taskq_destroy          0x0000779d   0x6c  Code  Gb  taskq.o [9]
+_taskq_resume           0x0000786d   0x54  Code  Gb  taskq.o [9]
+_taskq_suspend          0x00007809   0x5c  Code  Gb  taskq.o [9]
+_time_add_msec_to_ticks
+                        0x0000290f   0x1c  Code  Gb  time.o [9]
+_time_check_if_leap     0x00002d4d   0x28  Code  Gb  time.o [9]
+_time_days_in_month_internal
+                        0x000207ec   0x1c  Data  Gb  time_tables.o [9]
+_time_delay             0x0000292b   0x4a  Code  Gb  time.o [9]
+_time_delay_internal    0x00002975   0x6a  Code  Gb  time.o [9]
+_time_diff_seconds      0x000029f7   0x18  Code  Gb  time.o [9]
+_time_diff_ticks        0x000029df   0x18  Code  Gb  time.o [9]
+_time_from_date         0x00002a6d  0x140  Code  Gb  time.o [9]
+_time_get               0x00002bad   0x18  Code  Gb  time.o [9]
+_time_get_elapsed_ticks
+                        0x00002a3f   0x2e  Code  Gb  time.o [9]
+_time_get_ticks         0x00002bd1   0x3a  Code  Gb  time.o [9]
+_time_get_ticks_per_sec
+                        0x00002bc5    0xc  Code  Gb  time.o [9]
+_time_init_ticks        0x00002c19   0x2c  Code  Gb  time.o [9]
+_time_notify_kernel     0x00002c45   0xc2  Code  Gb  time.o [9]
+_time_secs_before_month_internal
+                        0x00020808   0x68  Data  Gb  time_tables.o [9]
+_time_secs_before_year_internal
+                        0x00020870  0x20c  Data  Gb  time_tables.o [9]
+_time_set               0x00002d07   0x46  Code  Gb  time.o [9]
+_time_set_hwtick_function
+                        0x00002d7f    0xe  Code  Gb  time.o [9]
+_time_set_hwticks_per_tick
+                        0x00002d8d    0xa  Code  Gb  time.o [9]
+_time_set_ticks_per_sec
+                        0x00002d75    0xa  Code  Gb  time.o [9]
+_time_to_date           0x00002d97   0xb0  Code  Gb  time.o [9]
+_timer_alloc_id_internal
+                        0x0001231f   0x42  Code  Gb  timer.o [9]
+_timer_cancel           0x00011e4d   0xa2  Code  Gb  timer.o [9]
+_timer_cleanup          0x00012361   0x78  Code  Gb  timer.o [9]
+_timer_create_component
+                        0x00011f25   0xc2  Code  Gb  timer.o [9]
+_timer_find_entry_internal
+                        0x00011eef   0x36  Code  Gb  timer.o [9]
+_timer_insert_queue_internal
+                        0x000122df   0x40  Code  Gb  timer.o [9]
+_timer_isr              0x00012255   0x8a  Code  Gb  timer.o [9]
+_timer_start_oneshot_after
+                        0x000120fb   0x2a  Code  Gb  timer.o [9]
+_timer_start_oneshot_after_internal
+                        0x00011fed  0x102  Code  Gb  timer.o [9]
+_timer_task             0x00012131  0x124  Code  Gb  timer.o [9]
+_timer_test             0x000123d9   0x80  Code  Gb  timer.o [9]
+abort                   0x000154f5    0x6  Code  Gb  abort.o [4]
+adc_address             0x00007920   0x10  Data  Lc  adc_mk60.o [3]
+adc_bundle              0x1fff0a54    0x4  Data  Gb  adc_kadc.o [3]
+adc_calibrate           0x00006ab5   0x8c  Code  Lc  adc_kadc.o [3]
+adc_complete_isr        0x00006a99   0x1c  Code  Lc  adc_kadc.o [3]
+adc_get_calibration_data
+                        0x00006b47   0x58  Code  Lc  adc_kadc.o [3]
+adc_internal            0x1fff0a30   0x24  Data  Lc  adc_kadc.o [3]
+adc_process_all_data    0x00006a59   0x28  Code  Gb  adc_kadc.o [3]
+adc_process_data        0x000069d5   0x84  Code  Lc  adc_kadc.o [3]
+adc_set_calibration_data
+                        0x00006b9f   0x58  Code  Lc  adc_kadc.o [3]
+adt_idelay_isr          0x0000737d   0x30  Code  Lc  adt_kpdb.o [3]
+adt_period_prescaler    0x00006e17  0x180  Code  Lc  adt_kpdb.o [3]
+alarm_time              0x1fff0854    0x4  Data  Lc  krtc.o [3]
+countBits               0x000180b1   0x16  Code  Gb  wl_common.o [6]
+count_ones_16(unsigned int)
+                        0x0001595d   0x24  Code  Gb  phy_map.o [6]
+count_ones_32(unsigned int)
+                        0x00015981   0x16  Code  Gb  phy_map.o [6]
+curr_ecc_mode           0x1fff0068    0x4  Data  Lc  nfc_wl.o [6]
+dma_init                0x00002fef    0x4  Code  Gb  edma.o [3]
+dmamux_base             0x1fff0184    0x8  Data  Gb  edma.o [3]
+edma_base               0x1fff0180    0x4  Data  Gb  edma.o [3]
+edma_channel_context    0x1fff0868  0x180  Data  Lc  edma.o [3]
+edma_done_isr           0x00002ea1   0x46  Code  Lc  edma.o [3]
+edma_done_vectors       0x000056a4   0x40  Data  Lc  edma_kinetisf.o [3]
+edma_err_isr            0x00002ee7   0x50  Code  Lc  edma.o [3]
+edma_error_vectors      0x000056e4    0x4  Data  Lc  edma_kinetisf.o [3]
+edma_init_module        0x00002f37   0xb8  Code  Lc  edma.o [3]
+error_code              0x1fff0040    0x4  Data  Gb  demo.o [1]
+exit                    0x0000053d    0x4  Code  Gb  exit.o [4]
+filesystem_handle       0x1fff0048    0x4  Data  Gb  demo.o [1]
+filesystem_name         0x1fff004c    0x4  Data  Gb  demo.o [1]
+format_table            0x1fff0078   0xd0  Data  Lc  mfs_format.o [8]
+free                    0x00000501    0x4  Code  Gb  comp.o [9]
+g_NANDThreadSafeMutex   0x1fff0a00   0x30  Data  Gb  ddi_nand_media_definition.o [6]
+g_bFrameworkExternalDriveOrFsInit
+                        0x1fff07d0    0x4  Data  Gb  ddi_ldl_init.o [6]
+g_ldlInfo               0x1fff07a0   0x30  Data  Gb  ddi_ldl_init.o [6]
+g_mediaBufferManagerContext
+                        0x1fff0350  0x418  Data  Gb  media_buffer_manager.o [6]
+g_nandHalContext        0x1fff07e8   0x68  Data  Gb  ddi_nand_hal_globals.o [6]
+g_nandHalFDPTR          0x1fff0850    0x4  Data  Gb  ddi_nand_hal_globals.o [6]
+g_nandMedia             0x1fff07e4    0x4  Data  Gb  ddi_nand_media_init.o [6]
+g_nandZipConfigBlockInfo
+                        0x1fff018c  0x144  Data  Gb  ddi_nand_media_definition.o [6]
+g_nfc_log_enable        0x1fff0064    0x4  Data  Gb  nfc_wl.o [6]
+hwtimer_callback_reg    0x000027ad   0x14  Code  Gb  hwtimer.o [3]
+hwtimer_deinit          0x000026ef   0x42  Code  Gb  hwtimer.o [3]
+hwtimer_get_modulo      0x0000278b    0x6  Code  Gb  hwtimer.o [3]
+hwtimer_get_time        0x00002791   0x1c  Code  Gb  hwtimer.o [3]
+hwtimer_init            0x000026a9   0x46  Code  Gb  hwtimer.o [3]
+hwtimer_set_freq        0x00002731   0x34  Code  Gb  hwtimer.o [3]
+hwtimer_start           0x00002771   0x1a  Code  Gb  hwtimer.o [3]
+hwtimer_systick_deinit  0x0001d4e7   0x20  Code  Lc  hwtimer_systick.o [3]
+hwtimer_systick_get_time
+                        0x0001d53f   0x38  Code  Lc  hwtimer_systick.o [3]
+hwtimer_systick_init    0x0001d49d   0x4a  Code  Lc  hwtimer_systick.o [3]
+hwtimer_systick_isr     0x0001d471   0x2c  Code  Lc  hwtimer_systick.o [3]
+hwtimer_systick_set_div
+                        0x0001d507   0x1e  Code  Lc  hwtimer_systick.o [3]
+hwtimer_systick_start   0x0001d525    0xe  Code  Lc  hwtimer_systick.o [3]
+hwtimer_systick_stop    0x0001d533    0xc  Code  Lc  hwtimer_systick.o [3]
+init_hardware           0x0000055b   0x80  Code  Gb  init_hw.o [3]
+isgraph                 0x00010b1b   0x46  Code  Gb  io_util.o [9]
+kNumBitsHighForAnIndex  0x00015bdc   0x10  Data  Lc  phy_map.o [6]
+lower_hex_string        0x000089a0   0x14  Data  Lc  io_dopr.o [9]
+main                    0x0000052d   0x10  Code  Gb  mqx_main.o [3]
+malloc                  0x000004fd    0x4  Code  Gb  comp.o [9]
+media_buffer_acquire    0x000125b7  0x22e  Code  Gb  media_buffer_manager.o [6]
+media_buffer_add_internal(_media_buffer_type, unsigned int, unsigned int, unsigned char *, unsigned char *, unsigned int *)
+                        0x00012471  0x128  Code  Lc  media_buffer_manager.o [6]
+media_buffer_count_all_temporary()
+                        0x00012acd   0x1a  Code  Gb  media_buffer_manager.o [6]
+media_buffer_deinit     0x000106cb   0x50  Code  Gb  media_buffer_manager_init.o [6]
+media_buffer_dispose_temporary(unsigned int)
+                        0x000129ed   0xc0  Code  Lc  media_buffer_manager.o [6]
+media_buffer_force_dispose_temporary()
+                        0x00012ae7   0x80  Code  Gb  media_buffer_manager.o [6]
+media_buffer_init       0x00010649   0x82  Code  Gb  media_buffer_manager_init.o [6]
+media_buffer_release    0x0001285b   0xe4  Code  Gb  media_buffer_manager.o [6]
+media_buffer_retain     0x000127eb   0x70  Code  Gb  media_buffer_manager.o [6]
+media_buffer_setup_next_timeout()
+                        0x0001293f   0xae  Code  Lc  media_buffer_manager.o [6]
+media_buffer_timeout(unsigned long, void *, unsigned long, unsigned long)
+                        0x00012ab9   0x14  Code  Gb  media_buffer_manager.o [6]
+media_buffer_update_stats(_media_buffer_statistics *, unsigned long)
+                        0x00012599   0x1e  Code  Lc  media_buffer_manager.o [6]
+memcmp                  0x000116e5         Code  Gb  memcmp.o [10]
+memset                  0x00018f81   0x14  Code  Gb  memset.o [4]
+mfs_nandflash_wl_close()
+                        0x00009993   0x5e  Code  Gb  demo.o [1]
+mfs_nandflash_wl_open()
+                        0x000098e3   0xb0  Code  Gb  demo.o [1]
+months                  0x0001a8c0   0x34  Data  Lc  dir_read.o [8]
+nand::BadBlockTable::BadBlockTable()
+                        0x00015311    0xc  Code  Gb  bad_block_table.o [6]
+nand::BadBlockTable::allocate(unsigned int)
+                        0x00015329   0x38  Code  Gb  bad_block_table.o [6]
+nand::BadBlockTable::markBad(unsigned int)
+                        0x000153b7   0x2a  Code  Gb  bad_block_table.o [6]
+nand::BadBlockTable::release()
+                        0x0001539d   0x1a  Code  Gb  bad_block_table.o [6]
+nand::BadBlockTable::scanAndBuildBBT()
+                        0x00015361   0x3c  Code  Gb  bad_block_table.o [6]
+nand::BadBlockTable::~BadBlockTable()
+                        0x0001531d    0xc  Code  Gb  bad_block_table.o [6]
+nand::Block::Block(nand::BlockAddress const &)
+                        0x00016a6d   0x14  Code  Gb  ddi_block.o [6]
+nand::Block::erase()    0x00016af9   0x26  Code  Gb  ddi_block.o [6]
+nand::Block::eraseAndMarkOnFailure()
+                        0x00016c19   0x16  Code  Gb  ddi_block.o [6]
+nand::Block::isErased()
+                        0x00016c2f   0x3c  Code  Gb  ddi_block.o [6]
+nand::Block::isMarkedBad(unsigned char *, unsigned long *)
+                        0x00016b1f   0x6a  Code  Gb  ddi_block.o [6]
+nand::Block::markBad()  0x00016b89   0x90  Code  Gb  ddi_block.o [6]
+nand::Block::operator ++()
+                        0x00016a9d   0x18  Code  Gb  ddi_block.o [6]
+nand::Block::operator =(nand::BlockAddress const &)
+                        0x00016a87   0x16  Code  Gb  ddi_block.o [6]
+nand::Block::readMetadata(unsigned int, unsigned char *)
+                        0x00016ab5   0x44  Code  Gb  ddi_block.o [6]
+nand::BootRegion::getRegionType() const
+                        0x00020269    0x4  Code  Gb  ddi_nand_media_discover.o [6]
+nand::BootRegion::~BootRegion() [deleting]
+                        0x00020275    0xa  Code  Gb  ddi_nand_media_discover.o [6]
+nand::DataDrive::DataDrive(nand::Media *, nand::Region *)
+                        0x0001dabb   0x50  Code  Gb  ddi_nand_data_drive_init.o [6]
+nand::DataDrive::addRegion(nand::Region *)
+                        0x0001db0b   0x34  Code  Gb  ddi_nand_data_drive_init.o [6]
+nand::DataDrive::buildRegionsList()
+                        0x0001dbfb   0xb8  Code  Gb  ddi_nand_data_drive_init.o [6]
+nand::DataDrive::erase()
+                        0x0001fae9  0x116  Code  Gb  ddi_nand_data_drive_erase.o [6]
+nand::DataDrive::flush()
+                        0x00020151   0x34  Code  Gb  ddi_nand_ndd_flush.o [6]
+nand::DataDrive::getInfo(unsigned int, void *)
+                        0x000201b1   0x68  Code  Gb  ddi_nand_data_drive_get_info.o [6]
+nand::DataDrive::init()
+                        0x0001db3f   0x66  Code  Gb  ddi_nand_data_drive_init.o [6]
+nand::DataDrive::isBlockHidden(unsigned int)
+                        0x00020045   0x5a  Code  Gb  ddi_nand_data_drive_erase.o [6]
+nand::DataDrive::logicalBlockToVirtual(unsigned int, nand::Region **, unsigned int *)
+                        0x0001f3ed   0x58  Code  Gb  ddi_nand_data_drive_read_sector.o [6]
+nand::DataDrive::logicalSectorToVirtual(unsigned int, nand::Region **, unsigned int *)
+                        0x0001f445   0x3a  Code  Gb  ddi_nand_data_drive_read_sector.o [6]
+nand::DataDrive::processRegions(nand::Region **, unsigned int *)
+                        0x0001dbad   0x4e  Code  Gb  ddi_nand_data_drive_init.o [6]
+nand::DataDrive::readSector(unsigned int, unsigned char *)
+                        0x0001f47f    0x8  Code  Gb  ddi_nand_data_drive_read_sector.o [6]
+nand::DataDrive::readSectorInternal(unsigned int, unsigned char *)
+                        0x0001f487  0x1f0  Code  Gb  ddi_nand_data_drive_read_sector.o [6]
+nand::DataDrive::repair(bool)
+                        0x0001fc05  0x3fa  Code  Gb  ddi_nand_data_drive_erase.o [6]
+nand::DataDrive::shouldRepairEraseBlock(unsigned int, NandPhysicalMedia *)
+                        0x00020005   0x40  Code  Gb  ddi_nand_data_drive_erase.o [6]
+nand::DataDrive::shutdown()
+                        0x00020189   0x26  Code  Gb  ddi_nand_ndd_flush.o [6]
+nand::DataDrive::writeSector(unsigned int, unsigned char const *)
+                        0x0001f78d    0x8  Code  Gb  ddi_nand_ndd_write_sector.o [6]
+nand::DataDrive::writeSectorInternal(unsigned int, unsigned char const *)
+                        0x0001f795  0x25a  Code  Gb  ddi_nand_ndd_write_sector.o [6]
+nand::DataDrive::~DataDrive() [deleting]
+                        0x0001daa5   0x16  Code  Gb  ddi_nand_data_drive_init.o [6]
+nand::DataRegion::DataRegion()
+                        0x00011965   0x14  Code  Gb  ddi_nand_media_init.o [6]
+nand::DataRegion::addNewBadBlock(nand::BlockAddress const &)
+                        0x0001d995    0xe  Code  Gb  ddi_nand_media_discover.o [6]
+nand::DataRegion::getBadBlockCount() const
+                        0x00020271    0x4  Code  Gb  ddi_nand_media_discover.o [6]
+nand::DataRegion::getRegionType() const
+                        0x0002026d    0x4  Code  Gb  ddi_nand_media_discover.o [6]
+nand::DataRegion::~DataRegion() [deleting]
+                        0x0002027f    0xa  Code  Gb  ddi_nand_media_discover.o [6]
+nand::DeferredTask::DeferredTask(int)
+                        0x00018017   0x1c  Code  Gb  deferred_task.o [6]
+nand::DeferredTask::DeferredTask(int) [subobject]
+                        0x00018005    0x8  Code  Gb  deferred_task.o [6]
+nand::DeferredTask::examine(nand::DeferredTaskQueue &)
+                        0x00018055   0x58  Code  Gb  deferred_task.o [6]
+nand::DeferredTask::examineOne(nand::DeferredTask*)
+                        0x000180ad    0x4  Code  Gb  deferred_task.o [6]
+nand::DeferredTask::getShouldExamine() const
+                        0x00018039    0x4  Code  Gb  deferred_task.o [6]
+nand::DeferredTask::run()
+                        0x0001803d   0x18  Code  Gb  deferred_task.o [6]
+nand::DeferredTask::~DeferredTask() [deleting]
+                        0x0001800d    0xa  Code  Gb  deferred_task.o [6]
+nand::DeferredTaskQueue::DeferredTaskQueue()
+                        0x00013061   0x38  Code  Gb  deferred_task_queue.o [6]
+nand::DeferredTaskQueue::drain()
+                        0x000130fb   0x1a  Code  Gb  deferred_task_queue.o [6]
+nand::DeferredTaskQueue::init()
+                        0x00013099   0x1e  Code  Gb  deferred_task_queue.o [6]
+nand::DeferredTaskQueue::post(nand::DeferredTask *)
+                        0x00013115   0xc8  Code  Gb  deferred_task_queue.o [6]
+nand::DeferredTaskQueue::taskThread()
+                        0x000131e9   0x70  Code  Gb  deferred_task_queue.o [6]
+nand::DeferredTaskQueue::taskThreadStub(unsigned int)
+                        0x000131dd    0xc  Code  Gb  deferred_task_queue.o [6]
+nand::DeferredTaskQueue::~DeferredTaskQueue()
+                        0x000130b7   0x44  Code  Gb  deferred_task_queue.o [6]
+nand::Mapper::Mapper(nand::Media *)
+                        0x00013325   0x32  Code  Gb  mapper.o [6]
+nand::Mapper::allocateBlock(unsigned int *, nand::MapperBlockTypes_t, unsigned int)
+                        0x0001654b  0x1ba  Code  Gb  ddi_nand_mapper_utilities.o [6]
+nand::Mapper::calculateAllocationIndex()
+                        0x0001670b  0x168  Code  Gb  ddi_nand_mapper_utilities.o [6]
+nand::Mapper::calculateNextMapSearchStartBlock()
+                        0x00016873   0x20  Code  Gb  ddi_nand_mapper_utilities.o [6]
+nand::Mapper::clearDirtyFlag()
+                        0x0001378f    0xa  Code  Gb  mapper.o [6]
+nand::Mapper::computeReservedBlockRange(bool *)
+                        0x00013489  0x13a  Code  Gb  mapper.o [6]
+nand::Mapper::createZoneMap()
+                        0x00013a3b   0xf8  Code  Gb  mapper.o [6]
+nand::Mapper::evacuateReservedBlockRange()
+                        0x000135c9  0x16c  Code  Gb  mapper.o [6]
+nand::Mapper::findMapBlock(nand::MapperMapTypes_t, unsigned int *)
+                        0x0001398d   0x3c  Code  Gb  mapper.o [6]
+nand::Mapper::flush()   0x00013943   0x4a  Code  Gb  mapper.o [6]
+nand::Mapper::getBlock(unsigned int *, nand::MapperBlockTypes_t, unsigned int)
+                        0x00013815   0x62  Code  Gb  mapper.o [6]
+nand::Mapper::getBlockAndAssign(unsigned int, unsigned int *, nand::MapperBlockTypes_t, unsigned int)
+                        0x000138b5   0x52  Code  Gb  mapper.o [6]
+nand::Mapper::getBlockInfo(unsigned int, unsigned int *)
+                        0x00017155   0x14  Code  Gb  ddi_nand_mapper_get_info.o [6]
+nand::Mapper::getPageInfo(unsigned int, unsigned int *, unsigned int *, unsigned int *)
+                        0x00017199   0x62  Code  Gb  ddi_nand_mapper_get_info.o [6]
+nand::Mapper::handleNewBadBlock(nand::BlockAddress const &)
+                        0x000139c9   0x2e  Code  Gb  mapper.o [6]
+nand::Mapper::init()    0x00013357  0x10a  Code  Gb  mapper.o [6]
+nand::Mapper::isBlockMapBlock(unsigned int, nand::MapperMapTypes_t, unsigned long *)
+                        0x00016893   0x68  Code  Gb  ddi_nand_mapper_utilities.o [6]
+nand::Mapper::markBlock(unsigned int, unsigned int, bool)
+                        0x00013907   0x3c  Code  Gb  mapper.o [6]
+nand::Mapper::phymapDirtyListener(nand::PhyMap *, bool, bool, void *)
+                        0x0001373d   0x48  Code  Gb  mapper.o [6]
+nand::Mapper::rebuild()
+                        0x00013461   0x28  Code  Gb  mapper.o [6]
+nand::Mapper::scanAndBuildPhyMap(AuxiliaryBuffer &)
+                        0x00013b39  0x114  Code  Gb  mapper.o [6]
+nand::Mapper::scanAndBuildZoneMap(AuxiliaryBuffer &)
+                        0x00013c53  0x14a  Code  Gb  mapper.o [6]
+nand::Mapper::searchAndDestroy()
+                        0x000139f7   0x44  Code  Gb  mapper.o [6]
+nand::Mapper::searchPhyMapEntry(unsigned int, int, int, bool *)
+                        0x000164f1   0x5a  Code  Gb  ddi_nand_mapper_utilities.o [6]
+nand::Mapper::setBlockInfo(unsigned int, unsigned int)
+                        0x000137e5   0x30  Code  Gb  mapper.o [6]
+nand::Mapper::setDirtyFlag()
+                        0x00013785    0xa  Code  Gb  mapper.o [6]
+nand::Mapper::shutdown()
+                        0x00013799   0x4c  Code  Gb  mapper.o [6]
+nand::Mapper::sufficientNumOfFreeBlocks()
+                        0x0001387d   0x38  Code  Gb  mapper.o [6]
+nand::Media::Media()    0x000117d7   0x26  Code  Gb  ddi_nand_media_init.o [6]
+nand::Media::allocateFromPreDefineRegions()
+                        0x0001d669   0xaa  Code  Gb  ddi_nand_media_allocate.o [6]
+nand::Media::createDrives()
+                        0x0001d8f9   0x9c  Code  Gb  ddi_nand_media_discover.o [6]
+nand::Media::deleteRegions()
+                        0x0001d5a9   0x2c  Code  Gb  ddi_nand_media_shutdown.o [6]
+nand::Media::flushDrives()
+                        0x0001d589   0x20  Code  Gb  ddi_nand_media_shutdown.o [6]
+nand::Media::getInfo(unsigned int, void *)
+                        0x00007a21   0xb4  Code  Gb  ddi_nand_media_get_info.o [6]
+nand::Media::getRegionForBlock(nand::BlockAddress const &)
+                        0x00017c15   0x3a  Code  Gb  ddi_nand_media_regions.o [6]
+nand::Media::init()     0x000117fd  0x134  Code  Gb  ddi_nand_media_init.o [6]
+nand::Media::shutdown()
+                        0x0001d5d5   0x90  Code  Gb  ddi_nand_media_shutdown.o [6]
+nand::Media::~Media() [deleting]
+                        0x000117c1   0x16  Code  Gb  ddi_nand_media_init.o [6]
+nand::Metadata::clearFlag(unsigned char)
+                        0x00016e93   0x24  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::erase()
+                        0x00016eb7   0x28  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::getLba() const
+                        0x00016d05   0x24  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::getLsi() const
+                        0x00016d29   0x1e  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::getSignature() const
+                        0x00016d47   0x30  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::getTrustNumber()
+                        0x00016f65   0x26  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::isErased() const
+                        0x00016dc5   0x36  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::isFlagSet(unsigned char) const
+                        0x00016d77   0x26  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::isMarkedBad() const
+                        0x00016d9d   0x28  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::prepare(unsigned int)
+                        0x00016efd   0x14  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::prepare(unsigned int, unsigned int)
+                        0x00016edf   0x1e  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::prepareWithTrust(unsigned int, unsigned short)
+                        0x00016f4d   0x18  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::setFlag(unsigned char)
+                        0x00016e6d   0x26  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::setLba(unsigned int)
+                        0x00016dfb   0x24  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::setLsi(unsigned short)
+                        0x00016e1f   0x1e  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::setSignature(unsigned int)
+                        0x00016e3d   0x30  Code  Gb  ddi_metadata.o [6]
+nand::Metadata::setSignatureAndTrustNumber(unsigned int, unsigned short)
+                        0x00016f11   0x3c  Code  Gb  ddi_metadata.o [6]
+nand::NonsequentialSectorsMap::CopyPagesFlagFilter::filter(NandPhysicalMedia *, NandPhysicalMedia *, unsigned int, unsigned int, unsigned char *, unsigned char *, bool *)
+                        0x00014fbf   0x3a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::NonsequentialSectorsMap()
+                        0x00014135   0x4a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::addEntry(unsigned int, unsigned int)
+                        0x000144cf   0x56  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::buildFromMetadata()
+                        0x0001429d   0x60  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::buildMapFromMetadata(nand::PageOrderMap &, unsigned int, unsigned int *)
+                        0x00014325  0x1a2  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::copyPages(NandPhysicalMedia *, NandPhysicalMedia *, unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
+                        0x00014eeb   0xce  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::copyToNewBlock(unsigned int, unsigned int *, unsigned int, unsigned int)
+                        0x00014c97   0x74  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::flush()
+                        0x000141f3   0x20  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::getEntry(unsigned int, unsigned int *, unsigned int *, unsigned int *)
+                        0x0001705f   0x54  Code  Gb  ddi_nand_nssm_get_entry.o [6]
+nand::NonsequentialSectorsMap::getKey() const
+                        0x00014ff9    0x6  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::getNewBlock(unsigned int, unsigned int *, unsigned int)
+                        0x00014aa5   0xf2  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::getPhysicalBlock(unsigned int *)
+                        0x00014269   0x24  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::getRegion()
+                        0x0001424d   0x1c  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::init(nand::NssmManager *, unsigned short)
+                        0x000141ab   0x30  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::insertToLRU()
+                        0x000170b3   0x10  Code  Gb  ddi_nand_nssm_get_entry.o [6]
+nand::NonsequentialSectorsMap::invalidate()
+                        0x00014213   0x3a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::isInLogicalOrder()
+                        0x00014525    0xe  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::mergeBlocksCore(unsigned int, unsigned int)
+                        0x000147bf  0x2e0  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::mergeBlocksSkippingPage(unsigned int)
+                        0x00014779   0x46  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::prepareForBlock(unsigned int)
+                        0x000141db   0x18  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::preventThrashing(unsigned int *, unsigned int)
+                        0x00014bc5   0x92  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::quickMerge()
+                        0x00014653  0x120  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::recoverBadLbaBlock(unsigned int, unsigned int *, unsigned int)
+                        0x00014c57   0x40  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::relocateVirtualBlock(unsigned int, unsigned int *)
+                        0x00014d11   0x5a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::removeFromLRU()
+                        0x000170c3   0x10  Code  Gb  ddi_nand_nssm_get_entry.o [6]
+nand::NonsequentialSectorsMap::resolveConflict(unsigned int, unsigned int, unsigned int)
+                        0x00014d6b  0x17a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::shortCircuitMerge()
+                        0x00014629   0x2a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::sortAndCopyLbaBlock(unsigned int, unsigned int, unsigned int, unsigned int)
+                        0x00014533   0xf6  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NonsequentialSectorsMap::~NonsequentialSectorsMap()
+                        0x00014181   0x2a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::NssmManager(nand::Media *)
+                        0x00013f2d   0x38  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::allocate(unsigned int)
+                        0x00013f65   0x8e  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::buildMap(unsigned int, nand::NonsequentialSectorsMap **)
+                        0x000140f5   0x3e  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::flushAll()
+                        0x00014043   0x20  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::getBaseNssmCount()
+                        0x00014017   0x2c  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::getMapForVirtualBlock(unsigned int)
+                        0x00017029   0x36  Code  Gb  ddi_nand_nssm_get_entry.o [6]
+nand::NssmManager::invalidateAll()
+                        0x00014063   0x40  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::invalidateDrive(LogicalDrive *)
+                        0x000140a3   0x52  Code  Gb  nonsequential_sectors_map.o [6]
+nand::NssmManager::~NssmManager()
+                        0x00013ff3   0x24  Code  Gb  nonsequential_sectors_map.o [6]
+nand::Page::Page()      0x00017c71   0x22  Code  Gb  ddi_page.o [6]
+nand::Page::Page() [subobject]
+                        0x00017c59    0x8  Code  Gb  ddi_page.o [6]
+nand::Page::Page(nand::BlockAddress const &)
+                        0x00017cbb   0x36  Code  Gb  ddi_page.o [6]
+nand::Page::Page(nand::PageAddress const &)
+                        0x00017c93   0x28  Code  Gb  ddi_page.o [6]
+nand::Page::Page(nand::PageAddress const &) [subobject]
+                        0x00017c61    0x8  Code  Gb  ddi_page.o [6]
+nand::Page::_io_read()  0x00017e65   0x50  Code  Gb  ddi_page.o [6]
+nand::Page::_io_write()
+                        0x00017ee9   0x50  Code  Gb  ddi_page.o [6]
+nand::Page::allocateBuffers(bool, bool)
+                        0x00017dd5   0x6c  Code  Gb  ddi_page.o [6]
+nand::Page::buffersDidChange()
+                        0x00017f39    0x6  Code  Gb  ddi_page.o [6]
+nand::Page::operator ++()
+                        0x00017d5b   0x1e  Code  Gb  ddi_page.o [6]
+nand::Page::operator --()
+                        0x00017d79   0x1e  Code  Gb  ddi_page.o [6]
+nand::Page::operator =(nand::PageAddress const &)
+                        0x00017cf7   0x18  Code  Gb  ddi_page.o [6]
+nand::Page::readMetadata()
+                        0x00017eb5   0x34  Code  Gb  ddi_page.o [6]
+nand::Page::releaseBuffers()
+                        0x00017e41   0x24  Code  Gb  ddi_page.o [6]
+nand::Page::set(nand::PageAddress const &)
+                        0x00017d41   0x1a  Code  Gb  ddi_page.o [6]
+nand::Page::setBuffers(unsigned char *, unsigned char *)
+                        0x00017d97   0x3e  Code  Gb  ddi_page.o [6]
+nand::Page::~Page()     0x00017d0f   0x32  Code  Gb  ddi_page.o [6]
+nand::Page::~Page() [subobject]
+                        0x00017c69    0x8  Code  Gb  ddi_page.o [6]
+nand::PageAddress::getRelativePage() const
+                        0x00018f95   0x24  Code  Gb  ddi_page.o [6]
+nand::PageOrderMap::cleanup()
+                        0x000179bf   0x14  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::clear()
+                        0x00017adf   0x1e  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::countDistinctEntries() const
+                        0x00017afd   0x22  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::init(unsigned int, unsigned int)
+                        0x00017963   0x5c  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::isInSortedOrder(unsigned int) const
+                        0x00017a8b   0x34  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::isOccupied(unsigned int) const
+                        0x000179fb   0x30  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::operator =(const nand::PageOrderMap&)
+                        0x00017925   0x3e  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::operator [](unsigned int) const
+                        0x00017a69   0x1c  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::setEntry(unsigned int, unsigned char)
+                        0x000179d3   0x28  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::setOccupied(unsigned int, bool)
+                        0x00017a2b   0x3e  Code  Gb  page_order_map.o [6]
+nand::PageOrderMap::setSortedOrder()
+                        0x00017abf   0x20  Code  Gb  page_order_map.o [6]
+nand::PersistentMap::PersistentMap(nand::Mapper &, unsigned int, unsigned int)
+                        0x000180d7   0x28  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::PersistentMap(nand::Mapper &, unsigned int, unsigned int) [subobject]
+                        0x000180cd    0x2  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::addSection(unsigned char *, unsigned int, unsigned int)
+                        0x000187a9  0x124  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::buildSectionOffsetTable()
+                        0x000182cf  0x116  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::consolidate(bool, unsigned int, unsigned char *, unsigned int)
+                        0x00018547  0x214  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::fillUnknownSectionOffsets(nand::ZoneMapSectionPage &, bool &)
+                        0x0001848f   0xb8  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::findTopPageIndex(nand::ZoneMapSectionPage &, bool &)
+                        0x000183e5   0xa4  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::getSectionForConsolidate(unsigned int, unsigned int, unsigned char *&, unsigned int &, unsigned char *)
+                        0x00018761   0x48  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::init(int, int)
+                        0x00018119   0x30  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::retrieveSection(unsigned int, unsigned char *, bool)
+                        0x00018149  0x180  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::~PersistentMap()
+                        0x000180ff   0x14  Code  Gb  persistent_map.o [6]
+nand::PersistentMap::~PersistentMap() [subobject]
+                        0x000180cf    0x8  Code  Gb  persistent_map.o [6]
+nand::PersistentPhyMap::PersistentPhyMap(nand::Mapper &)
+                        0x0001624f   0x20  Code  Gb  persistent_phy_map.o [6]
+nand::PersistentPhyMap::getSectionForConsolidate(unsigned int, unsigned int, unsigned char *&, unsigned int &, unsigned char *)
+                        0x000163e9   0x4e  Code  Gb  persistent_phy_map.o [6]
+nand::PersistentPhyMap::init()
+                        0x0001627d   0x14  Code  Gb  persistent_phy_map.o [6]
+nand::PersistentPhyMap::load()
+                        0x00016291   0xc8  Code  Gb  persistent_phy_map.o [6]
+nand::PersistentPhyMap::save()
+                        0x0001635f   0x64  Code  Gb  persistent_phy_map.o [6]
+nand::PersistentPhyMap::saveNewCopy()
+                        0x000163c3   0x26  Code  Gb  persistent_phy_map.o [6]
+nand::PersistentPhyMap::~PersistentPhyMap() [deleting]
+                        0x00016239   0x16  Code  Gb  persistent_phy_map.o [6]
+nand::PhyMap::clearDirty()
+                        0x00015b0d   0x16  Code  Gb  phy_map.o [6]
+nand::PhyMap::getFreeCount() const
+                        0x00015ad3   0x24  Code  Gb  phy_map.o [6]
+nand::PhyMap::init(unsigned int)
+                        0x00015997   0x44  Code  Gb  phy_map.o [6]
+nand::PhyMap::isBlockFree(unsigned int) const
+                        0x00015ab5   0x1e  Code  Gb  phy_map.o [6]
+nand::PhyMap::markAll(bool)
+                        0x000159ef   0x1e  Code  Gb  phy_map.o [6]
+nand::PhyMap::markBlock(unsigned int, bool, bool)
+                        0x00015a0d   0xa0  Code  Gb  phy_map.o [6]
+nand::PhyMap::setDirty()
+                        0x00015af7   0x16  Code  Gb  phy_map.o [6]
+nand::PhyMap::~PhyMap()
+                        0x000159db   0x14  Code  Gb  phy_map.o [6]
+nand::Region::Iterator::getNext()
+                        0x00016a51   0x1a  Code  Gb  mapper.o [6]
+nand::Region::Region()  0x00011931   0x24  Code  Gb  ddi_nand_media_init.o [6]
+nand::Region::create(nand::_NandConfigBlockRegionInfo *)
+                        0x0001d835   0x7e  Code  Gb  ddi_nand_media_discover.o [6]
+nand::Region::initFromConfigBlock(nand::_NandConfigBlockRegionInfo *)
+                        0x0001d8bd   0x3c  Code  Gb  ddi_nand_media_discover.o [6]
+nand::Region::isDataRegion() const
+                        0x00020251   0x14  Code  Gb  ddi_nand_media_discover.o [6]
+nand::Region::setDirty()
+                        0x00017c4f    0x8  Code  Gb  ddi_nand_media_regions.o [6]
+nand::RelocateVirtualBlockTask::RelocateVirtualBlockTask(nand::NssmManager *, unsigned int)
+                        0x00014fff   0x1a  Code  Gb  nonsequential_sectors_map.o [6]
+nand::RelocateVirtualBlockTask::examineOne(nand::DeferredTask *)
+                        0x0001501d   0x24  Code  Gb  nonsequential_sectors_map.o [6]
+nand::RelocateVirtualBlockTask::getTaskTypeID() const
+                        0x00015019    0x4  Code  Gb  nonsequential_sectors_map.o [6]
+nand::RelocateVirtualBlockTask::task()
+                        0x00015041   0x1c  Code  Gb  nonsequential_sectors_map.o [6]
+nand::RelocateVirtualBlockTask::~RelocateVirtualBlockTask() [deleting]
+                        0x0002023b   0x16  Code  Gb  nonsequential_sectors_map.o [6]
+nand::SystemRegion::SystemRegion()
+                        0x00011955    0x2  Code  Gb  ddi_nand_media_init.o [6]
+nand::SystemRegion::SystemRegion() [subobject]
+                        0x000117bd    0x4  Code  Gb  ddi_nand_media_init.o [6]
+nand::SystemRegion::addNewBadBlock(nand::BlockAddress const &)
+                        0x000004db    0x2  Code  Gb  ddi_nand_media_discover.o [6]
+nand::SystemRegion::getBadBlockCount() const
+                        0x00020265    0x4  Code  Gb  ddi_nand_media_discover.o [6]
+nand::SystemRegion::getRegionType() const
+                        0x00020219    0x4  Code  Gb  ddi_nand_media_init.o [6]
+nand::SystemRegion::~SystemRegion() [deleting]
+                        0x0002021d    0xa  Code  Gb  ddi_nand_media_init.o [6]
+nand::ZoneMapCache::ZoneMapCache(nand::Mapper &)
+                        0x00015c03   0x20  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::consolidate(bool, unsigned int, unsigned char *, unsigned int)
+                        0x00015f31   0x3a  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::evictAndLoad(unsigned int, int)
+                        0x00018d8d   0x56  Code  Gb  ddi_nand_mapper_zone_map_cache_lookup.o [6]
+nand::ZoneMapCache::findZoneMap()
+                        0x00015e3d   0x24  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::flush()
+                        0x00016033   0x56  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::getBlockInfo(unsigned int, unsigned int *)
+                        0x000170d5   0x80  Code  Gb  ddi_nand_mapper_get_info.o [6]
+nand::ZoneMapCache::getSectionForConsolidate(unsigned int, unsigned int, unsigned char *&, unsigned int &, unsigned char *)
+                        0x00015f6b   0x5e  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::init()
+                        0x00015c49   0xa0  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::loadCacheEntry(unsigned int, int)
+                        0x00015e61   0xd0  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::lookupCacheEntry(unsigned int, int *)
+                        0x00018ccd   0xc0  Code  Gb  ddi_nand_mapper_zone_map_cache_lookup.o [6]
+nand::ZoneMapCache::readMapEntry(nand::ZoneMapCache::CacheEntry *, unsigned int)
+                        0x00017169   0x30  Code  Gb  ddi_nand_mapper_get_info.o [6]
+nand::ZoneMapCache::setBlockInfo(unsigned int, unsigned int)
+                        0x00016089   0x8c  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::shutdown()
+                        0x00015ce9   0x2a  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::writeEmptyMap()
+                        0x00015d15  0x122  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::writeMapEntry(nand::ZoneMapCache::CacheEntry *, unsigned int, unsigned int)
+                        0x00015fcf   0x64  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::~ZoneMapCache()
+                        0x00015c23   0x18  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapCache::~ZoneMapCache() [deleting]
+                        0x00015bed   0x16  Code  Gb  zone_map_cache.o [6]
+nand::ZoneMapSectionPage::ZoneMapSectionPage()
+                        0x000189c5    0xa  Code  Gb  zone_map_section_page.o [6]
+nand::ZoneMapSectionPage::ZoneMapSectionPage(nand::PageAddress const &)
+                        0x000189cf    0x8  Code  Gb  zone_map_section_page.o [6]
+nand::ZoneMapSectionPage::buffersDidChange()
+                        0x000189f5   0x14  Code  Gb  zone_map_section_page.o [6]
+nand::ZoneMapSectionPage::getSectionNumber()
+                        0x00018a09   0x42  Code  Gb  zone_map_section_page.o [6]
+nand::ZoneMapSectionPage::operator =(nand::PageAddress const &)
+                        0x000189e9    0xc  Code  Gb  zone_map_section_page.o [6]
+nand::ZoneMapSectionPage::validateHeader()
+                        0x00018a4b   0x38  Code  Gb  zone_map_section_page.o [6]
+nand::ZoneMapSectionPage::writeSection(unsigned int, unsigned int, unsigned char *, unsigned int *, bool, unsigned short)
+                        0x00018a83  0x11e  Code  Gb  zone_map_section_page.o [6]
+nandflash_erase()       0x00009819   0x34  Code  Gb  demo.o [1]
+nandflash_erase_chip()  0x00009853   0x54  Code  Gb  demo.o [1]
+nandflash_handle        0x1fff0044    0x4  Data  Gb  demo.o [1]
+nandflash_repair()      0x000098ad   0x30  Code  Gb  demo.o [1]
+nandwl_ignore_init      0x1fff076c    0x4  Data  Lc  nandflash_wl.o [6]
+nfc_check_block         0x0001d23d   0xa0  Code  Gb  nfc.o [3]
+nfc_deinit              0x0001ce6d    0x2  Code  Gb  nfc.o [3]
+nfc_dump_buff(void *, unsigned long, char *)
+                        0x0001c235   0xc6  Code  Gb  nfc_wl.o [6]
+nfc_erase_block         0x0001ce99   0x94  Code  Gb  nfc.o [3]
+nfc_erase_flash         0x0001ce6f   0x2a  Code  Gb  nfc.o [3]
+nfc_init                0x0001ccc9  0x1a4  Code  Gb  nfc.o [3]
+nfc_io_init             0x0001ccc5    0x4  Code  Gb  nfc_k60f120m.o [3]
+nfc_ioctl               0x0001d40d   0x20  Code  Gb  nfc.o [3]
+nfc_mark_block_as_bad   0x0001d2dd   0xac  Code  Gb  nfc.o [3]
+nfc_read_ID             0x0001d389   0x50  Code  Gb  nfc.o [3]
+nfc_read_page           0x0001cf2d  0x186  Code  Gb  nfc.o [3]
+nfc_read_page_metadata  0x0001c50d  0x146  Code  Gb  nfc_wl.o [6]
+nfc_read_page_with_metadata
+                        0x0001c2fb  0x1fe  Code  Gb  nfc_wl.o [6]
+nfc_read_phy_page_raw   0x0001c82f   0xbe  Code  Gb  nfc_wl.o [6]
+nfc_swap_addr1          0x1fff07d4    0x4  Data  Gb  nfc.o [3]
+nfc_swap_addr1_with_metadata
+                        0x1fff006c    0x4  Data  Gb  nfc_wl.o [6]
+nfc_swap_addr2          0x1fff07d8    0x4  Data  Gb  nfc.o [3]
+nfc_write_page          0x0001d0b9  0x17e  Code  Gb  nfc.o [3]
+nfc_write_page_with_metadata
+                        0x0001c653  0x1d4  Code  Gb  nfc_wl.o [6]
+nfc_write_phy_page_raw  0x0001c911   0xe2  Code  Gb  nfc_wl.o [6]
+operator delete (void *)
+                        0x00012eaf    0xa  Code  Gb  delop_0.o [5]
+operator delete[] (void *)
+                        0x000180c7    0x4  Code  Gb  delaop_0.o [5]
+operator new (unsigned int)
+                        0x00011799   0x24  Code  Gb  newop_0.o [5]
+operator new[] (unsigned int)
+                        0x00013059    0x8  Code  Gb  newaop_0.o [5]
+os_err_code_to_wl       0x00011dfd   0x50  Code  Gb  errcode.o [6]
+pdb_external            0x1fff02d0    0x4  Data  Lc  adt_kpdb.o [3]
+pdb_internal            0x1fff02d4   0x34  Data  Lc  adt_kpdb.o [3]
+print_bpb               0x00019a5d  0x206  Code  Lc  sh_di.o [11]
+print_fsi               0x00019c6d   0x68  Code  Lc  sh_di.o [11]
+shell_fs_close(long, char **)
+                        0x00009a93   0x52  Code  Gb  demo.o [1]
+shell_fs_open(long, char **)
+                        0x00009a41   0x52  Code  Gb  demo.o [1]
+shell_nand_erase(long, char **)
+                        0x00009ae5   0x52  Code  Gb  demo.o [1]
+shell_nand_erase_chip(long, char **)
+                        0x00009b37   0x52  Code  Gb  demo.o [1]
+shell_nand_repair(long, char **)
+                        0x00009b89   0x52  Code  Gb  demo.o [1]
+shell_task(unsigned long)
+                        0x000099f1   0x40  Code  Gb  demo.o [1]
+std::_NomemoryNothrow()
+                        0x00012eab    0x4  Code  Gb  nomemory.o [5]
+std::__iar_New_hand     0x1fff0a58    0x4  Data  Gb  new.o [5]
+strcat                  0x00012e8f   0x1c  Code  Gb  strcat.o [4]
+strcmp                  0x000073cd         Code  Gb  strcmp.o [10]
+strcpy                  0x00010b61         Code  Gb  strcpy.o [10]
+strlen                  0x00007411         Code  Gb  strlen.o [10]
+strncmp                 0x000079f1   0x2a  Code  Gb  strncmp.o [4]
+strncpy                 0x00010a55         Code  Gb  strncpy.o [10]
+sw_time                 0x1fff0858    0x4  Data  Lc  krtc.o [3]
+systick_devif           0x00020b74   0x18  Data  Gb  hwtimer_systick.o [3]
+systimer                0x1fff0310   0x40  Data  Gb  init_bsp.o [3]
+upper_hex_string        0x0000898c   0x14  Data  Lc  io_dopr.o [9]
+user_enables            0x1fff085c    0x4  Data  Lc  krtc.o [3]
+user_isr                0x1fff0864    0x4  Data  Gb  krtc.o [3]
+user_requests           0x1fff0860    0x4  Data  Lc  krtc.o [3]
+wl_hw_get_microsecond   0x000172bd   0x18  Code  Gb  simple_timer.o [6]
+
+
+[1] = D:\Ganglu\Documents\GitHub\K60F120M\ffs\examples\mfs_nandflash\iar\mfs_nandflash_K60F120M\K60F120M\Int Flash Release\Obj
+[2] = command line
+[3] = bsp.a
+[4] = dl7M_tln.a
+[5] = dlpp7M_tl_nc.a
+[6] = ffs.a
+[7] = m7M_tlv.a
+[8] = mfs.a
+[9] = psp.a
+[10] = rt7M_tl.a
+[11] = shell.a
+
+  131 568 bytes of readonly  code memory
+    3 369 bytes of readonly  data memory
+    2 657 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

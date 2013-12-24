@@ -3730,6 +3730,18 @@
         <configuration>Int Flash Debug</configuration>
       </excluded>
     </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\lib\K60F120M.iar\debug\bsp\tss.a</name>
+      <excluded>
+        <configuration>Int Flash Release</configuration>
+      </excluded>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\lib\K60F120M.iar\release\bsp\tss.a</name>
+      <excluded>
+        <configuration>Int Flash Debug</configuration>
+      </excluded>
+    </file>
   </group>
   <group>
     <name>Source</name>
@@ -3749,6 +3761,12 @@
       <name>DIO</name>
       <file>
         <name>$PROJ_DIR$\src\dio\dio_app.c</name>
+      </file>
+    </group>
+    <group>
+      <name>HMI</name>
+      <file>
+        <name>$PROJ_DIR$\src\hmi\hmi.c</name>
       </file>
     </group>
     <file>

@@ -77,6 +77,8 @@
 #define MQXCFG_ENABLE_FP                1
 #define MQX_INCLUDE_FLOATING_POINT_IO   1
 
+#define MQX_USE_TIMER            1
+
 #define RTCSCFG_ENABLE_ICMP      1
 #define RTCSCFG_ENABLE_UDP       1
 #define RTCSCFG_ENABLE_TCP       1

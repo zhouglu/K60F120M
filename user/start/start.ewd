@@ -1208,11 +1208,11 @@
         </option>
         <option>
           <name>RunToEnable</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>RunToName</name>
-          <state>CalcEnergy</state>
+          <state>Shell_task</state>
         </option>
         <option>
           <name>CExtraOptionsCheck</name>
@@ -1988,7 +1988,7 @@
         <option>
           <name>CCPEMicroInterfaceList</name>
           <version>0</version>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCPEMicroResetDelay</name>
@@ -3530,7 +3530,7 @@
         </option>
         <option>
           <name>RunToName</name>
-          <state>main</state>
+          <state>Shell_task</state>
         </option>
         <option>
           <name>CExtraOptionsCheck</name>

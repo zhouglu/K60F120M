@@ -950,7 +950,7 @@ void __pe_initialize_hardware(void)
   _bsp_watchdog_disable();
 
   /*** !!! Here you can place your own code before PE initialization using property "User code before PE initialization" on the build options tab. !!! ***/
-
+#if 0   // 0: 12MHz Crastal, 1: 50MHz Oscillator
   /*** ### MK60FN1M0VLQ12 "Cpu" init code ... ***/
   /*** PE initialization code after reset ***/
   /* SIM_SCGC6: RTC=1 */
@@ -1031,7 +1031,97 @@ void __pe_initialize_hardware(void)
   /* MCG_C6: CME0=1 */
   MCG_C6 |= (uint8_t)0x20U;            /* Enable the clock monitor */
   /*** End of PE initialization code after reset ***/
-
+#else
+  /*** ### MK60FN1M0VLQ12 "Cpu" init code ... ***/
+  /*** PE initialization code after reset ***/
+  /* SIM_SCGC6: RTC=1 */
+  SIM_SCGC6 |= SIM_SCGC6_RTC_MASK;                                   
+  if ((RTC_CR & RTC_CR_OSCE_MASK) == 0u) { /* Only if the OSCILLATOR is not already enabled */
+    /* RTC_CR: SC2P=1,SC4P=1,SC8P=0,SC16P=1 */
+    RTC_CR = (uint32_t)((RTC_CR & (uint32_t)~(uint32_t)(
+              RTC_CR_SC8P_MASK
+             )) | (uint32_t)(
+              RTC_CR_SC2P_MASK |
+              RTC_CR_SC4P_MASK |
+              RTC_CR_SC16P_MASK
+             ));                                  
+    /* RTC_CR: OSCE=1 */
+    RTC_CR |= RTC_CR_OSCE_MASK;                                   
+    /* RTC_CR: CLKO=0 */
+    RTC_CR &= (uint32_t)~(uint32_t)(RTC_CR_CLKO_MASK);                                   
+  }
+  /* Disable the WDOG module */
+  /* WDOG_UNLOCK: WDOGUNLOCK=0xC520 */
+  WDOG_UNLOCK = WDOG_UNLOCK_WDOGUNLOCK(0xC520); /* Key 1 */
+  /* WDOG_UNLOCK: WDOGUNLOCK=0xD928 */
+  WDOG_UNLOCK = WDOG_UNLOCK_WDOGUNLOCK(0xD928); /* Key 2 */
+  /* WDOG_STCTRLH: ??=0,DISTESTWDOG=0,BYTESEL=0,TESTSEL=0,TESTWDOG=0,??=0,??=1,WAITEN=1,STOPEN=1,DBGEN=0,ALLOWUPDATE=1,WINEN=0,IRQRSTEN=0,CLKSRC=1,WDOGEN=0 */
+  WDOG_STCTRLH = WDOG_STCTRLH_BYTESEL(0x00) |
+                 WDOG_STCTRLH_WAITEN_MASK |
+                 WDOG_STCTRLH_STOPEN_MASK |
+                 WDOG_STCTRLH_ALLOWUPDATE_MASK |
+                 WDOG_STCTRLH_CLKSRC_MASK |
+                 0x0100U;       
+  /* System clock initialization */
+  /* SIM_SCGC5: PORTE=1,PORTA=1 */
+  SIM_SCGC5 |= (SIM_SCGC5_PORTE_MASK | SIM_SCGC5_PORTA_MASK); /* Enable clock gate for ports to enable pin routing */
+  /* SIM_CLKDIV1: OUTDIV1=0,OUTDIV2=1,OUTDIV3=1,OUTDIV4=5,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+  SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0x00) |
+                SIM_CLKDIV1_OUTDIV2(0x01) |
+                SIM_CLKDIV1_OUTDIV3(0x01) |
+                SIM_CLKDIV1_OUTDIV4(0x05); /* Update system prescalers */
+  /* SIM_SOPT2: PLLFLLSEL=0 */
+  SIM_SOPT2 &= (uint32_t)~(uint32_t)(SIM_SOPT2_PLLFLLSEL(0x03)); /* Select FLL as a clock source for various peripherals */
+  /* SIM_SOPT1: OSC32KSEL=0 */
+  SIM_SOPT1 &= (uint32_t)~(uint32_t)(SIM_SOPT1_OSC32KSEL_MASK); /* System oscillator drives 32 kHz clock for various peripherals */
+  /* SIM_SCGC1: OSC1=1 */
+  SIM_SCGC1 |= SIM_SCGC1_OSC1_MASK;                                   
+  /* PORTE_PCR24: ISF=0,MUX=0 */
+  PORTE_PCR24 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
+  /* PORTE_PCR25: ISF=0,MUX=0 */
+  PORTE_PCR25 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));                                   
+  /* Switch to FBE Mode */
+  /* MCG_C7: OSCSEL=1 */
+  MCG_C7 |= MCG_C7_OSCSEL_MASK;                                   
+  /* MCG_C10: LOCRE2=0,??=0,RANGE1=2,HGO1=0,EREFS1=1,??=0,??=0 */
+  MCG_C10 = (MCG_C10_RANGE1(0x02) | MCG_C10_EREFS1_MASK);                                   
+  /* MCG_C2: LOCRE0=0,??=0,RANGE0=0,HGO0=0,EREFS0=0,LP=0,IRCS=0 */
+  MCG_C2 = MCG_C2_RANGE0(0x00);                                   
+  /* OSC0_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
+  OSC0_CR = OSC_CR_ERCLKEN_MASK;                                   
+  /* OSC1_CR: ERCLKEN=1,??=0,EREFSTEN=0,??=0,SC2P=0,SC4P=0,SC8P=0,SC16P=0 */
+  OSC1_CR = OSC_CR_ERCLKEN_MASK;                                   
+  /* MCG_C1: CLKS=2,FRDIV=0,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = (MCG_C1_CLKS(0x02) | MCG_C1_FRDIV(0x00) | MCG_C1_IRCLKEN_MASK);                                   
+  /* MCG_C4: DMX32=0,DRST_DRS=0 */
+  MCG_C4 &= (uint8_t)~(uint8_t)((MCG_C4_DMX32_MASK | MCG_C4_DRST_DRS(0x03)));                                   
+  /* MCG_C5: PLLREFSEL0=1,PLLCLKEN0=0,PLLSTEN0=0,??=0,??=0,PRDIV0=0 */
+  MCG_C5 = (MCG_C5_PLLREFSEL0_MASK | MCG_C5_PRDIV0(0x00));                                   
+  /* MCG_C6: LOLIE0=0,PLLS=0,CME0=0,VDIV0=4 */
+  MCG_C6 = MCG_C6_VDIV0(0x04);                                   
+  /* MCG_C11: PLLREFSEL1=0,PLLCLKEN1=0,PLLSTEN1=0,PLLCS=0,??=0,PRDIV1=0 */
+  MCG_C11 = MCG_C11_PRDIV1(0x00);                                   
+  /* MCG_C12: LOLIE1=0,??=0,CME2=0,VDIV1=0 */
+  MCG_C12 = MCG_C12_VDIV1(0x00);                                   
+  while((MCG_S & MCG_S_IREFST_MASK) != 0x00U) { /* Check that the source of the FLL reference clock is the external reference clock. */
+  }
+  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
+  }
+  /* Switch to PBE Mode */
+  /* MCG_C6: LOLIE0=0,PLLS=1,CME0=0,VDIV0=4 */
+  MCG_C6 = (MCG_C6_PLLS_MASK | MCG_C6_VDIV0(0x04));                                   
+  while((MCG_S & 0x0CU) != 0x08U) {    /* Wait until external reference clock is selected as MCG output */
+  }
+  while((MCG_S & MCG_S_LOCK0_MASK) == 0x00U) { /* Wait until PLL locked */
+  }
+  /* Switch to PEE Mode */
+  /* MCG_C1: CLKS=0,FRDIV=0,IREFS=0,IRCLKEN=1,IREFSTEN=0 */
+  MCG_C1 = (MCG_C1_CLKS(0x00) | MCG_C1_FRDIV(0x00) | MCG_C1_IRCLKEN_MASK);                                   
+  while((MCG_S & 0x0CU) != 0x0CU) {    /* Wait until output of the PLL is selected */
+  }
+  /*** End of PE initialization code after reset ***/
+#endif
+  
   /*** !!! Here you can place your own code after PE initialization using property "User code after PE initialization" on the build options tab. !!! ***/
 
 }
