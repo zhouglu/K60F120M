@@ -51,6 +51,8 @@ void callback_print_release(pointer);
 int_32 Shell_set_module(int_32, char_ptr []);
 int_32 Shell_get_module(int_32, char_ptr []);
 
+extern void change_dio_task_state(pointer);
+
 HMI_CLIENT_STRUCT_PTR bsp_btnled_driver_handle;    /* BTNLED handle pointer */
     
 /*TASK*-----------------------------------------------------
@@ -89,7 +91,7 @@ void hmi_task(uint_32 initial_data)
     btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_4, HMI_VALUE_PUSH, callback_print_push, "button 4");
     btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_4, HMI_VALUE_RELEASE, callback_toggle_led, "button 4");
     btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_5, HMI_VALUE_PUSH, callback_print_push, "button 5");
-    btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_6, HMI_VALUE_PUSH, callback_print_push, "button 6");
+    btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_6, HMI_VALUE_PUSH, change_dio_task_state, "button 6");
     btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_7, HMI_VALUE_PUSH, callback_print_push, "button 7");
     btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_8, HMI_VALUE_PUSH, callback_print_push, "button 8");
     btnled_add_clb(bsp_btnled_driver_handle, HMI_BUTTON_9, HMI_VALUE_RELEASE, callback_print_release, "button 9");

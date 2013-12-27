@@ -27,6 +27,7 @@
 
 static LWGPIO_STRUCT led[4], btn[2];
 static int dio_task_status = 0;
+static LWEVENT_STRUCT lwevent;
 
 boolean init_dio()
 {
@@ -71,6 +72,30 @@ boolean init_dio()
     return TRUE;
 }
 
+void change_dio_task_state(pointer pstate)
+{
+    int state = *(int *)pstate;
+    switch (state) {
+    case 0:
+        _lwevent_clear(&lwevent, 0x01);
+        dio_task_status = 0;
+        break;
+    case 1:
+        _lwevent_set(&lwevent, 0x01);
+        dio_task_status = 1;
+        break;
+    default:
+        if (dio_task_status == 0) {
+            _lwevent_set(&lwevent, 0x01);
+            dio_task_status = 1;
+        } else {
+             _lwevent_clear(&lwevent, 0x01);
+            dio_task_status = 0;
+        }
+        break;
+    }
+}
+
 int_32 Shell_eable_dio(int_32 argc, char_ptr argv[])
 {
     boolean      print_usage, shorthelp = FALSE;
@@ -101,17 +126,18 @@ int_32 Shell_eable_dio(int_32 argc, char_ptr argv[])
         }
         
         _task_id dio_taskid = _task_get_id_from_name("dio");
-        if (enable) {
-            // resume thread
-            pointer td_ptr = _task_get_td(dio_taskid);
-            if (!dio_task_status){
-                _task_ready(td_ptr);
-                dio_task_status = 1;
-            }
-        } else {
-            // pause thread            
-            dio_task_status = 0;
-        }
+        change_dio_task_state(&enable);
+//        if (enable) {
+//            // resume thread
+//            pointer td_ptr = _task_get_td(dio_taskid);
+//            if (!dio_task_status){
+//                _task_ready(td_ptr);
+//                dio_task_status = 1;
+//            }
+//        } else {
+//            // pause thread            
+//            dio_task_status = 0;
+//        }
         
         for (int i = 0; i < ARRAY_SIZE(led); i++)
         {
@@ -141,21 +167,27 @@ void dio_task(uint_32 arg)
     uint_32 i = 0;
     MQX_TICK_STRUCT cur_tick_time;
     
+    cur_tick_time = _mqx_zero_tick_struct;
+    
     dio_task_status = 1;
     
     init_dio();
-    _time_get_ticks(&cur_tick_time);
+    
+    if (MQX_OK != _lwevent_create(&lwevent, LWEVENT_AUTO_CLEAR)) {
+        printf("_lwevent_create error\n");
+        return;
+    }
+    _lwevent_set(&lwevent, 0x01);
     
 //    lwgpio_set_value(&led[3], LWGPIO_VALUE_LOW);
     
     while (1) {
-        if (dio_task_status == 0 ) _task_block();
+        if (dio_task_status == 0 ) _lwevent_wait_for(&lwevent, 0x01, 0, 0);
         lwgpio_toggle_value(&led[i]);
         if (4 == ++i) i = 0;
 //        lwgpio_toggle_value(&led[i]);
-//        _time_add_msec_to_ticks(&cur_tick_time, 50);
-//        _time_delay_for(&cur_tick_time);
-        _time_delay(200);
-        
+        _time_add_msec_to_ticks(&cur_tick_time, 250);
+        _time_delay_until(&cur_tick_time);
+//        _time_delay(200);
     }
 }
