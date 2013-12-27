@@ -1050,18 +1050,6 @@ void __pe_initialize_hardware(void)
     /* RTC_CR: CLKO=0 */
     RTC_CR &= (uint32_t)~(uint32_t)(RTC_CR_CLKO_MASK);                                   
   }
-  /* Disable the WDOG module */
-  /* WDOG_UNLOCK: WDOGUNLOCK=0xC520 */
-  WDOG_UNLOCK = WDOG_UNLOCK_WDOGUNLOCK(0xC520); /* Key 1 */
-  /* WDOG_UNLOCK: WDOGUNLOCK=0xD928 */
-  WDOG_UNLOCK = WDOG_UNLOCK_WDOGUNLOCK(0xD928); /* Key 2 */
-  /* WDOG_STCTRLH: ??=0,DISTESTWDOG=0,BYTESEL=0,TESTSEL=0,TESTWDOG=0,??=0,??=1,WAITEN=1,STOPEN=1,DBGEN=0,ALLOWUPDATE=1,WINEN=0,IRQRSTEN=0,CLKSRC=1,WDOGEN=0 */
-  WDOG_STCTRLH = WDOG_STCTRLH_BYTESEL(0x00) |
-                 WDOG_STCTRLH_WAITEN_MASK |
-                 WDOG_STCTRLH_STOPEN_MASK |
-                 WDOG_STCTRLH_ALLOWUPDATE_MASK |
-                 WDOG_STCTRLH_CLKSRC_MASK |
-                 0x0100U;       
   /* System clock initialization */
   /* SIM_SCGC5: PORTE=1,PORTA=1 */
   SIM_SCGC5 |= (SIM_SCGC5_PORTE_MASK | SIM_SCGC5_PORTA_MASK); /* Enable clock gate for ports to enable pin routing */

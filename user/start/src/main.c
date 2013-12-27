@@ -37,24 +37,28 @@
 
 void Shell_task(uint_32);
 extern void hmi_task(uint_32 arg);
+extern void dio_task(uint_32 arg);
 
 /* function prototypes */
 extern int_32 Shell_set_module(int_32, char_ptr []);
 extern int_32 Shell_get_module(int_32, char_ptr []);
 extern int_32 Shell_calc_energy(int_32, char_ptr []);
+extern int_32 Shell_eable_dio(int_32, char_ptr []);
 
 const TASK_TEMPLATE_STRUCT  MQX_template_list[] = 
 { 
     /* Task Index,   Function,   Stack,  Priority, Name,     Attributes,          Param, Time Slice */
-    { MAIN_TASK,   Shell_task, 8500,   12,        "shell",  MQX_AUTO_START_TASK, 0,     0 },
+    { MAIN_TASK,   Shell_task, 9000,   12,        "shell",  MQX_AUTO_START_TASK, 0,     0 },
     { MAIN_TASK + 1,   hmi_task, 1500,   9,        "hmi",  MQX_AUTO_START_TASK, 0,     0 },
-    { 0 }
+    { MAIN_TASK + 1,   dio_task, 1500,   9,        "dio",  MQX_AUTO_START_TASK, 0,     0 },
+   { 0 }
 };
 
 const SHELL_COMMAND_STRUCT Shell_commands[] = {
         {"module", Shell_set_module},
         {"get", Shell_get_module},
         {"calcenergy", Shell_calc_energy},
+        {"enabledio", Shell_eable_dio},
         {"exit", Shell_exit},
         {"help", Shell_help},
         {NULL, NULL}

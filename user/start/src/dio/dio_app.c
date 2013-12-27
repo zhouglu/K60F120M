@@ -18,10 +18,15 @@
 
 #include <mqx.h>
 #include <bsp.h>
+#include <fio.h>
+#include <shell.h>
+#include <stdlib.h>
+#include <math.h>
 
 #define ARRAY_SIZE(x)   (sizeof(x) / sizeof(x[0]))
 
 static LWGPIO_STRUCT led[4], btn[2];
+static int dio_task_status = 0;
 
 boolean init_dio()
 {
@@ -66,10 +71,77 @@ boolean init_dio()
     return TRUE;
 }
 
+int_32 Shell_eable_dio(int_32 argc, char_ptr argv[])
+{
+    boolean      print_usage, shorthelp = FALSE;
+    int_32       return_code = SHELL_EXIT_SUCCESS;
+	int_32       opt, enable = 0;
+    LWGPIO_VALUE led_state = LWGPIO_VALUE_LOW;
+
+    print_usage = Shell_check_help_request(argc, argv, &shorthelp);
+
+    if (!print_usage)
+    {
+        while (1) {
+            opt = Shell_getopt(argc, argv, "e:s:");
+            if (-1 == opt) break;
+
+            switch (opt) {
+            case 'e':
+                enable = atoi(optarg);
+                break;
+            case 's':
+                led_state = (LWGPIO_VALUE)(0 == atoi(optarg) ? 
+                                LWGPIO_VALUE_LOW : LWGPIO_VALUE_HIGH);
+                break;
+            default:
+                printf("Usage: %s [-e 1/0]\n", argv[0]);
+                return 0;
+            }
+        }
+        
+        _task_id dio_taskid = _task_get_id_from_name("dio");
+        if (enable) {
+            // resume thread
+            pointer td_ptr = _task_get_td(dio_taskid);
+            if (!dio_task_status){
+                _task_ready(td_ptr);
+                dio_task_status = 1;
+            }
+        } else {
+            // pause thread            
+            dio_task_status = 0;
+        }
+        
+        for (int i = 0; i < ARRAY_SIZE(led); i++)
+        {
+            /* write logical 1 to the pin */
+            lwgpio_set_value(&led[i], led_state); /* set pin to 1 */
+        }
+    }
+    
+    if (print_usage)
+    {
+        if (shorthelp)
+        {
+            printf("%s\n", argv[0]); /* shows in help command */
+        }
+        else
+        {
+            printf("Usage: %s [-e 1/0]\n", argv[0]);
+            return 0;
+        }
+    }
+    
+    return return_code;
+}
+
 void dio_task(uint_32 arg)
 {
     uint_32 i = 0;
     MQX_TICK_STRUCT cur_tick_time;
+    
+    dio_task_status = 1;
     
     init_dio();
     _time_get_ticks(&cur_tick_time);
@@ -77,6 +149,7 @@ void dio_task(uint_32 arg)
 //    lwgpio_set_value(&led[3], LWGPIO_VALUE_LOW);
     
     while (1) {
+        if (dio_task_status == 0 ) _task_block();
         lwgpio_toggle_value(&led[i]);
         if (4 == ++i) i = 0;
 //        lwgpio_toggle_value(&led[i]);
